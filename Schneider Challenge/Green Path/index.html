@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Green Path</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <h1>Green Path</h1>
+    <div class="sub">
+        <h6>uma mudança por dia. um dia de cada vez.</h6>
+    </div>
+    <div class="botoes">
+        <a href="LINK DO YT" class="btn btn-success">video pitch</a>
+        <a href="#sobre" class="btn btn-success">sobre o projeto</a>
+        <a href="dicas.html" class="btn btn-success">dicas sustentáveis</a>
+    </div>
+    <div class="formulario">
+        <form name="checklist">
+            <label for="torneira" class="form-label"><strong>1- Você desligou a torneira enquanto escovava os dentes?</strong></label>
+            <br>
+            <input type="radio" class="form-check-input" name="choice-radio" value="Sim">
+                Sim
+            </label>
+            <br>
+            <label>
+                <input type="radio" class="form-check-input" name="choice-radio">
+                Não
+                <br>
+            </label>
+            
+            <br>
+            <br>
+
+            <label for="banho"><strong>2- Você tomou banho em menos de 10 minutos?</strong></label>
+            <br>
+                <input type="radio" class="form-check-input" name="choice-radio2" value="Sim">
+                Sim
+            </label>
+            <br>
+            <label>
+                <input type="radio" class="form-check-input" name="choice-radio2">
+                Não
+                <br>
+            </label>
+            <br>
+            <br>
+
+            <label for="eletronicos"><strong>3- Você desligou sua TV e outros dispositivos eletrônicos antes de ir trabalhar?</strong></label>
+            <br>
+                <input type="radio" class="form-check-input" name="choice-radio3" value="Sim">
+                Sim
+            </label>
+            <br>
+            <label>
+                <input type="radio" class="form-check-input" name="choice-radio3">
+                Não
+                <br>
+            </label>
+            <br>
+            <br>
+
+            <label for="reciclagem"><strong>4- Você separou o lixo orgânico do dia anterior, do que pode ser reciclado?</strong></label>
+                <br>
+                <input type="radio" class="form-check-input" name="choice-radio4" value="Sim">
+                Sim
+            </label>
+            <br>
+            <label>
+                <input type="radio" class="form-check-input" name="choice-radio4">
+                Não
+                <br>
+            </label>
+            <br>
+            <br>
+
+            <label for="regar"><strong>5- Plantou e/ou regou as plantinhas em sua casa?</strong></label>
+                <br>
+                <input type="radio" class="form-check-input" name="choice-radio5" value="Sim">
+                Sim
+            </label>
+            <br>
+            <label>
+                <input type="radio" class="form-check-input" name="choice-radio5">
+                Não
+            </label>
+            <br>
+            <br>
+            <div class="enviar">
+                <button onclick="calcularPontuacao()" type="submit" form="form1" value="Submit">enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="sobre">
+        <div class="container">
+                <h2>Sobre o Projeto</h2>
+                <h3>Idealizador e Criador do Projeto</h3>
+                <div class="mirlo">
+                    <img src="./images/mirlo.jfif" alt="">
+                </div>
+                <div class="sobremirlo">
+                    <p>O presente projeto foi desenvolvido por Murilo Favoretto Finardi, aluno do curso de Engenharia de Software da FIAP.</p>
+                </div>
+                <h3>Recursos Utilizados</h3>
+                <h4>Para o desenvolvimento do projeto Green Path foram utilizadas as presentes ferramentas:</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="./images/html.png" alt="">
+                    <h6>HTML</h6>
+                    <p>Além de servir como estrutura para todo o projeto, o HTML foi utilizado para criar o principal mecanismo deste site, o formulário chamado de Checklist, no qual o colaborador responderá de maneira rápida e efetiva.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="./images/css.png" alt="">
+                    <h6>CSS</h6>
+                    <p>O CSS foi o grande responsável pela estilização do site, de maneira que estabeleceu margens e fontes para os textos, além de cores e bordas</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="./images/javascript.png" alt="">
+                    <h6>Javascript</h6>
+                    <p>O Javascript foi utilizado para dar real funcionalidade ao formulário, de maneira que através de uma Function tornou-se possível calcular se o colaborador está agindo de maneira sustentável, ou se será necessário repensar algumas práticas diárias.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="./images/bootstrap.png" alt="">
+                    <h6>Bootstrap</h6>
+                    <p>O Bootstrap foi o framework escolhido para estilizar alguns botões do site, para que o usuário tivesse uma melhor experiência.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="return">
+        <a href="index.html" class="btn btn-success">retornar para o topo</a>
+      </div>
+</body>
+<footer></footer>
+</html>
