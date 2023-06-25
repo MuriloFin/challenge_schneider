@@ -1,0 +1,85 @@
+:root {
+  --title: "Poppins";
+  --sub-title: "Montserrat";
+  --text: "Open Sans";
+
+  --green: #235d23;
+  --dark-green: #0d300d;
+  --bg-green: #32382c;
+  --white: #f8f8f8;
+  --black: #292c25;
+}
+
+* {
+  font-family: var(--text), Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--white);
+}
+
+body {
+  background-color: var(--bg-green);
+  height: 100svh;
+}
+
+ul {
+  list-style: none;
+}
+
+.logo {
+  color: var(--green);
+  filter: brightness(200%);
+  text-align: center;
+  font-family: "Bagel Fat One", cursive;
+  font-size: 2rem;
+  border: 1px solid var(--green);
+  border-radius: 1rem;
+  padding: 4px 6px;
+}
+
+header#cabecalho nav ul li {
+  width: 208px;
+}
+
+header#cabecalho nav ul li > a {
+  background-color: var(--green);
+  border-radius: 9999px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: var(--title);
+  transition: filter 100ms;
+}
+
+header#cabecalho nav ul li.pagina-selecionada > a {
+  background: var(--dark-green);
+}
+
+#navegacao-menu {
+  transition: none;
+}
+
+#cabecalho-icone {
+  background-color: var(--green);
+  transition: filter 150ms;
+  aspect-ratio: 1 / 1;
+}
+
+.navegacao-botao {
+  transition: filter 150ms;
+}
+.navegacao-botao:hover {
+  filter: brightness(120%);
+}
+.navegacao-botao:active:hover {
+  filter: brightness(80%);
+}
+
+@media (max-width: 768px) {
+  header#cabecalho nav ul li {
+    width: 100%;
+  }
+
+  header#cabecalho nav ul {
+    position: absolute;
+    top: 8px;
+  }
+}
