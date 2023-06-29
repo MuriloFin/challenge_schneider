@@ -17,7 +17,7 @@
 
 body {
   background-color: var(--bg-green);
-  height: 100svh;
+  min-height: 100svh;
 }
 
 ul {
