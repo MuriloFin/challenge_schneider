@@ -38,12 +38,12 @@
     <!-- NAVEGAÇÃO -->
     <header id="cabecalho" class="container-fluid py-1">
       <nav
-        class="navbar navbar-expand-md d-flex justify-content-end px-2 px-md-0"
+        class="navbar navbar-expand-lg d-flex justify-content-end px-2 px-lg-0"
       >
         <div
-          class="d-flex justify-content-between align-items-center w-100 d-md-none"
+          class="d-flex justify-content-between align-items-center w-100 d-lg-none"
         >
-          <span class="logo d-md-none">Green Path</span>
+          <span class="logo d-lg-none">Green Path</span>
           <button
             id="cabecalho-icone"
             class="navegacao-botao navbar-toggler border-0 shadow-none rounded-5 d-flex justify-content-center align-items-center"
@@ -93,71 +93,93 @@
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <main id="conteudo-principal">
+    <main id="main-content">
       <!-- NOTICIAS -->
-      <section>
-        <ul class="noticias-lista d-flex flex-column">
-          <li class="noticias-item lobo-1">
-            <article class="noticia">
+      <section id="news-section">
+        <ul class="news-list d-flex flex-column">
+          <li class="news-item lobo-1">
+            <article
+              class="news"
+              data-link="https://www.cnnbrasil.com.br/economia/em-30-anos-mundo-vai-ser-de-40-a-60-mais-eletrico-diz-chairman-da-schneider-electric/"
+            >
               <img
-                class="noticia-imagem"
-                src="https://images.pexels.com/photos/7516966/pexels-photo-7516966.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="news-image"
+                src="https://img.youtube.com/vi/cwRgFHrXIEU/sddefault.jpg"
                 alt=""
               />
-              <div class="noticia-conteudo">
-                <h5 class="noticia-titulo display-5">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Aliquid itaque, tempore unde illum doloribus veniam!
+              <div class="news-content">
+                <h5 class="news-title display-5">
+                  Em 30 anos, mundo vai ser de 40% a 60% mais elétrico, diz
+                  chairman da Schneider Electric
                 </h5>
-                <p class="noticia-paragrafo fs-4 lh-sm fw-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Adipisci laudantium dolores fuga tempora dolore nam ratione
-                  saepe aperiam magni. Officia obcaecati quis sit non quo quae
-                  expedita nulla vel iusto magnam. Sint officia aliquid
-                  explicabo repudiandae maxime, quod cupiditate, amet in ipsum
-                  optio reiciendis maiores tempore repellendus quae, ad natus
-                  iste quasi esse labore. Consectetur odio modi aspernatur
-                  labore suscipit rerum temporibus qui. Ex velit delectus odio
-                  animi voluptatibus nihil illum? Soluta error velit doloremque.
+                <span class="fs-5 fw-light lh-sm"
+                  >Para o líder, as tecnologias digitais combinadas com a
+                  eletrificação têm um enorme potencial como fonte de energia
+                  segura, confiável e sustentável que pode ajudar a atender às
+                  crescentes demandas globais de energia de maneira sustentável,
+                  esforço que também se reflete no mercado brasileiro</span
+                >
+                <p class="news-paragraph fs-4 lh-sm fw-light">
+                  Em visita ao país, o presidente do conselho administrativo de
+                  um dos maiores grupos do setor de energia do mundo, a
+                  Schneider Electric, Jean-Pascal Tricoire, afirmou em
+                  entrevista à <span class="fw-bolder">CNN</span> na última
+                  sexta-feira (16) que o potencial da energia limpa coloca o
+                  Brasil em um lugar único no mundo.
                 </p>
-                <p class="noticia-paragrafo fs-4 lh-sm fw-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Adipisci laudantium dolores fuga tempora dolore nam ratione
-                  saepe aperiam magni. Officia obcaecati quis sit non quo quae
-                  expedita nulla vel iusto magnam. Sint officia aliquid
-                  explicabo repudiandae maxime, quod cupiditate, amet in ipsum
-                  optio reiciendis maiores tempore repellendus quae, ad natus
-                  iste quasi esse labore. Consectetur odio modi aspernatur
-                  labore suscipit rerum temporibus qui. Ex velit delectus odio
-                  animi voluptatibus nihil illum? Soluta error velit doloremque.
+                <p class="news-paragraph fs-4 lh-sm fw-light">
+                  “O Brasil tem um ativo que é sua eletricidade verde, porque
+                  vem de fontes renováveis. A eletricidade hoje é apenas 20% do
+                  consumo de energia do Brasil. Olhando para a perspectiva
+                  global, o mundo está alinhado com o Brasil nos 20%. Em 30
+                  anos, o mundo vai ser de 40% a 60% elétrico. Espere que o seu
+                  ambiente seja de duas a três vezes mais elétrico.”
                 </p>
-                <p class="noticia-paragrafo fs-4 lh-sm fw-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Adipisci laudantium dolores fuga tempora dolore nam ratione
-                  saepe aperiam magni. Officia obcaecati quis sit non quo quae
-                  expedita nulla vel iusto magnam. Sint officia aliquid
-                  explicabo repudiandae maxime, quod cupiditate, amet in ipsum
-                  optio reiciendis maiores tempore repellendus quae, ad natus
-                  iste quasi esse labore. Consectetur odio modi aspernatur
-                  labore suscipit rerum temporibus qui. Ex velit delectus odio
-                  animi voluptatibus nihil illum? Soluta error velit doloremque.
+                <p class="news-paragraph fs-4 lh-sm fw-light">
+                  Tricoire veio ao Brasil para participar de um evento oficial
+                  da companhia, em São Paulo, e também para o Innovation Summit
+                  2023, que acontece em Belo Horizonte nos dias 19 e 20 de
+                  junho. Questionado sobre o caminho para um crescimento aliado
+                  à sustentabilidade, o chairman da empresa afirmou que é
+                  preciso empenho.
+                </p>
+                <p class="news-paragraph fs-4 lh-sm fw-light">
+                  “Você será melhor pago se tiver um desempenho econômico, mas
+                  também se tiver um desempenho sustentável. Tem muito a ver com
+                  cultura, com educar e dialogar. Afinal, economia e ecologia
+                  também andam juntas”, disse.
+                </p>
+                <p class="news-paragraph fs-4 lh-sm fw-light">
+                  Para o líder, as tecnologias digitais combinadas com a
+                  eletrificação têm um enorme potencial como fonte de energia
+                  segura, confiável e sustentável que pode ajudar a atender às
+                  crescentes demandas globais de energia de maneira sustentável,
+                  esforço que também se reflete no mercado brasileiro.
+                </p>
+                <p class="news-paragraph fs-4 lh-sm fw-light">
+                  “Você pode fazer com que qualquer edifício seja 30% mais
+                  eficiente, tornando-o mais digital. Você pode ter muita
+                  economia, além de ser melhor para o planeta. Poucos edifícios
+                  são digitais hoje. É tudo uma questão de implementação, 70%
+                  das emissões de carbono poderiam ser eliminadas com a
+                  tecnologia existente”, reforça.
                 </p>
               </div>
             </article>
           </li>
-          <li class="noticias-item lobo-2">
-            <article class="noticia">
+          <li class="news-item lobo-2">
+            <article class="news">
               <img
-                class="noticia-imagem"
+                class="news-image"
                 src="https://images.pexels.com/photos/7208374/pexels-photo-7208374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt=""
               />
-              <div class="noticia-conteudo">
-                <h5 class="noticia-titulo display-5">
+              <div class="news-content">
+                <h5 class="news-title display-5">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos,
                   deserunt?
                 </h5>
-                <p class="noticia-paragrafo fs-4 lh-sm fw-light">
+                <p class="news-paragraph fs-4 lh-sm fw-light">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Adipisci laudantium dolores fuga tempora dolore nam ratione
                   saepe aperiam magni. Officia obcaecati quis sit non quo quae
@@ -171,19 +193,19 @@
               </div>
             </article>
           </li>
-          <li class="noticias-item lobo-3">
-            <article class="noticia">
+          <li class="news-item lobo-3">
+            <article class="news">
               <img
-                class="noticia-imagem"
+                class="news-image"
                 src="https://images.pexels.com/photos/7516988/pexels-photo-7516988.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt=""
               />
-              <div class="noticia-conteudo">
-                <h5 class="noticia-titulo display-5">
+              <div class="news-content">
+                <h5 class="news-title display-5">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem,
                   quia?
                 </h5>
-                <p class="noticia-paragrafo fs-4 lh-sm fw-light">
+                <p class="news-paragraph fs-4 lh-sm fw-light">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                   quibusdam deleniti, perferendis veniam alias cupiditate ipsum
                   odit earum eaque. Nam cum magni doloremque provident. Corporis
@@ -195,7 +217,7 @@
                   aspernatur! Nulla corporis id autem dicta molestiae itaque
                   minus!
                 </p>
-                <p class="noticia-paragrafo fs-4 lh-sm fw-light">
+                <p class="news-paragraph fs-4 lh-sm fw-light">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                   quibusdam deleniti, perferendis veniam alias cupiditate ipsum
                   odit earum eaque. Nam cum magni doloremque provident. Corporis
@@ -207,7 +229,7 @@
                   aspernatur! Nulla corporis id autem dicta molestiae itaque
                   minus!
                 </p>
-                <p class="noticia-paragrafo fs-4 lh-sm fw-light">
+                <p class="news-paragraph fs-4 lh-sm fw-light">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                   quibusdam deleniti, perferendis veniam alias cupiditate ipsum
                   odit earum eaque. Nam cum magni doloremque provident. Corporis
@@ -225,23 +247,21 @@
         </ul>
 
         <!-- CARROSSEL CONTROLE -->
-        <a
-          id="previous"
-          href="#conteudo-principal"
-          class="button-arrow d-md-none"
+        <a id="previous" href="#main-content" class="button-arrow d-lg-none"
           ><span class="material-symbols-outlined"> chevron_left </span></a
         >
-        <a id="next" href="#conteudo-principal" class="button-arrow d-md-none"
+        <a id="next" href="#main-content" class="button-arrow d-lg-none"
           ><span class="material-symbols-outlined"> chevron_right </span></a
         >
-      </section>
 
-      <!-- NOTICIA FULLSCREEN -->
-      <section class="d-none"></section>
+        <!-- CLOSE FULLSCREEN -->
+        <a id="close-fullscreen" class="d-none p-2 bg-danger">
+          <span class="material-symbols-outlined"> close </span>
+        </a>
+      </section>
     </main>
 
     <!-- JS -->
-    <script src="../js/noticias-carrossel.js"></script>
     <script src="../js/noticias.js"></script>
 
     <!-- BOOTSTRAP -->
