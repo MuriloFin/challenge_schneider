@@ -1,147 +1,138 @@
-function newsItemsAutoFocus() {
-  const newsItems = document.querySelectorAll(".news-item");
-  newsItems[0].setAttribute("focus", "");
+const newsItems = document.querySelectorAll(".news-item");
+const breakPointLarge = parseInt(
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--bs-breakpoint-lg"
+  )
+);
 
-  const newsItemHeight = newsItems[0].clientHeight;
+// ---------------------------- AUTO FOCUS ----------------------------
+newsItems[0].setAttribute("focus", "");
 
-  function focusNewsItemOnScroll() {
-    const newsItemToFocus = getNewsItemToFocus();
-    const newsItemOnFocus = document.querySelector(".news-item[focus]");
+const newsItemHeight = newsItems[0].clientHeight;
 
-    if (newsItemToFocus !== newsItemOnFocus) {
-      updateNewsItemFocused(newsItemOnFocus, newsItemToFocus);
-    }
+function focusNewsItemOnScroll() {
+  const newsItemToFocus = getNewsItemToFocus();
+  const newsItemOnFocus = document.querySelector(".news-item[focus]");
+
+  if (newsItemToFocus !== newsItemOnFocus) {
+    updateNewsItemFocused(newsItemOnFocus, newsItemToFocus);
   }
+}
 
-  function getNewsItemToFocus() {
-    const scrollY = window.scrollY;
+function getNewsItemToFocus() {
+  const scrollY = window.scrollY;
 
-    const newsItemToFocusIndex = Math.floor(
-      (scrollY + newsItemHeight / 2) / newsItemHeight
-    );
-
-    return newsItems[newsItemToFocusIndex];
-  }
-
-  function updateNewsItemFocused(newsItemToUnfocus, newsItemToFocus) {
-    newsItemToUnfocus.removeAttribute("focus");
-    newsItemToFocus.setAttribute("focus", "");
-  }
-
-  const breakPointLarge = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      "--bs-breakpoint-lg"
-    )
+  const newsItemToFocusIndex = Math.floor(
+    (scrollY + newsItemHeight / 2) / newsItemHeight
   );
 
-  window.addEventListener("resize", toggleFocusNewsItemOnScrollEventListener);
+  return newsItems[newsItemToFocusIndex];
+}
 
-  toggleFocusNewsItemOnScrollEventListener();
+function updateNewsItemFocused(newsItemToUnfocus, newsItemToFocus) {
+  newsItemToUnfocus.removeAttribute("focus");
+  newsItemToFocus.setAttribute("focus", "");
+}
 
-  function toggleFocusNewsItemOnScrollEventListener() {
-    if (window.innerWidth >= breakPointLarge) {
-      focusNewsItemOnScroll();
-      window.addEventListener("scroll", focusNewsItemOnScroll);
-    } else {
-      window.removeEventListener("scroll", focusNewsItemOnScroll);
-    }
+window.addEventListener("resize", toggleFocusNewsItemOnScrollEventListener);
+
+toggleFocusNewsItemOnScrollEventListener();
+
+function toggleFocusNewsItemOnScrollEventListener() {
+  const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
+
+  if (window.innerWidth >= breakPointLarge && !newsItemFullScreen) {
+    focusNewsItemOnScroll();
+    window.addEventListener("scroll", focusNewsItemOnScroll);
+  } else {
+    window.removeEventListener("scroll", focusNewsItemOnScroll);
   }
 }
 
-function fullScreenNewsItemHandler() {
-  const newsItems = document.querySelectorAll(".news-item");
-
-  function extractNewsItem(element) {
-    if (element.classList.contains("news-item")) {
-      return element;
-    }
-
-    return extractNewsItem(element.parentElement);
+// ---------------------------- FULLSCREEN HANDLER ----------------------------
+function extractNewsItem(element) {
+  if (element.classList.contains("news-item")) {
+    return element;
   }
 
-  function fullScreenNewsItem(e) {
-    const newsItem = extractNewsItem(e.target);
+  return extractNewsItem(element.parentElement);
+}
 
-    newsItem.setAttribute("fullscreen", "");
+function fullScreenNewsItem(e) {
+  const newsItem = extractNewsItem(e.target);
+
+  newsItem.setAttribute("fullscreen", "");
+
+  window.removeEventListener("scroll", focusNewsItemOnScroll);
+}
+
+document.querySelector("#close-fullscreen").addEventListener("click", () => {
+  const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
+
+  newsItemFullScreen.removeAttribute("fullscreen");
+  newsItemFullScreen.scrollIntoView();
+  window.addEventListener("scroll", focusNewsItemOnScroll);
+});
+
+window.addEventListener("resize", toggleFullScreenNewsItemEventListener);
+
+toggleFullScreenNewsItemEventListener();
+
+function toggleFullScreenNewsItemEventListener() {
+  if (window.innerWidth >= breakPointLarge) {
+    newsItems.forEach((newsItem) => {
+      newsItem.addEventListener("click", fullScreenNewsItem);
+    });
+  } else {
+    newsItems.forEach((newsItem) => {
+      newsItem.removeEventListener("click", fullScreenNewsItem);
+    });
   }
+}
 
-  document.querySelector("#close-fullscreen").addEventListener("click", () => {
-    const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
+// ---------------------------- CARROUSEL HANDLER ----------------------------
+newsItems[0].setAttribute("active", "");
 
-    newsItemFullScreen.removeAttribute("fullscreen");
-
-    newsItemFullScreen.scrollIntoView();
-  });
-
-  window.addEventListener("resize", toggleFullScreenNewsItemEventListener);
-
-  const breakPointLarge = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      "--bs-breakpoint-lg"
-    )
+document.querySelector("#previous").addEventListener("click", () => {
+  const indexNewsItemActive = [...newsItems].findIndex((newsItem) =>
+    newsItem.hasAttribute("active")
   );
 
-  toggleFullScreenNewsItemEventListener();
+  toggleActive(
+    newsItems[indexNewsItemActive],
+    findPrevious(indexNewsItemActive)
+  );
+});
 
-  function toggleFullScreenNewsItemEventListener() {
-    if (window.innerWidth >= breakPointLarge) {
-      newsItems.forEach((newsItem) => {
-        newsItem.addEventListener("click", fullScreenNewsItem);
-      });
-    } else {
-      newsItems.forEach((newsItem) => {
-        newsItem.removeEventListener("click", fullScreenNewsItem);
-      });
-    }
+document.querySelector("#next").addEventListener("click", () => {
+  const newsItemActiveIndex = [...newsItems].findIndex((newsItem) =>
+    newsItem.hasAttribute("active")
+  );
+
+  toggleActive(newsItems[newsItemActiveIndex], findNext(newsItemActiveIndex));
+});
+
+function toggleActive(previousElement, targetElement) {
+  previousElement.removeAttribute("active");
+  targetElement.setAttribute("active", "");
+}
+
+function findNext(activeElementIndex) {
+  if (activeElementIndex === newsItems.length - 1) {
+    return newsItems[0];
+  } else {
+    return newsItems[activeElementIndex + 1];
   }
 }
 
-function changeNewsItemActive() {
-  const newsItems = document.querySelectorAll(".news-item");
-
-  newsItems[0].setAttribute("active", "");
-
-  document.querySelector("#previous").addEventListener("click", () => {
-    const indexNewsItemActive = [...newsItems].findIndex((newsItem) =>
-      newsItem.hasAttribute("active")
-    );
-
-    toggleActive(
-      newsItems[indexNewsItemActive],
-      findPrevious(indexNewsItemActive)
-    );
-  });
-
-  document.querySelector("#next").addEventListener("click", () => {
-    const newsItemActiveIndex = [...newsItems].findIndex((newsItem) =>
-      newsItem.hasAttribute("active")
-    );
-
-    toggleActive(newsItems[newsItemActiveIndex], findNext(newsItemActiveIndex));
-  });
-
-  function toggleActive(previousElement, targetElement) {
-    previousElement.removeAttribute("active");
-    targetElement.setAttribute("active", "");
-  }
-
-  function findNext(activeElementIndex) {
-    if (activeElementIndex === newsItems.length - 1) {
-      return newsItems[0];
-    } else {
-      return newsItems[activeElementIndex + 1];
-    }
-  }
-
-  function findPrevious(activeElementIndex) {
-    if (activeElementIndex === 0) {
-      return newsItems[newsItems.length - 1];
-    } else {
-      return newsItems[activeElementIndex - 1];
-    }
+function findPrevious(activeElementIndex) {
+  if (activeElementIndex === 0) {
+    return newsItems[newsItems.length - 1];
+  } else {
+    return newsItems[activeElementIndex - 1];
   }
 }
 
-newsItemsAutoFocus();
-fullScreenNewsItemHandler();
-changeNewsItemActive();
+window.addEventListener('resize', () => {
+  
+})

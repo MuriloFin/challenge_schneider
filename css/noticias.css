@@ -124,22 +124,15 @@ header {
     top: 0;
   }
 
-  .news-item:not([fullscreen]) .news-item {
+  .news-item:not([fullscreen]) {
     transition: transform 350ms;
   }
-  .news-item:not([fullscreen]) .news-item:hover {
+
+  .news-item:not([fullscreen]):hover {
     filter: brightness(115%);
   }
 
-  .news-item:not([fullscreen]) .news-item:not([active]) {
-    display: block;
-  }
-
-  .news-item[focus]:not([fullscreen]) .news-image {
-    -webkit-filter: grayscale(0) blur(0);
-    filter: grayscale(0) blur(0);
-  }
-  .news-item:not([fullscreen]) .news-item[focus] {
+  .news-item[focus]:not([fullscreen]) {
     transform: scaleY(1.1);
     z-index: 2;
   }
@@ -147,7 +140,6 @@ header {
   .news-item:not([fullscreen]) .news {
     position: relative;
     height: 35rem;
-    min-height: fit-content;
     display: flex;
     background: rgb(var(--bg-color));
     background: linear-gradient(
@@ -155,9 +147,7 @@ header {
       rgba(240, 248, 255, 0) 0%,
       rgba(var(--bg-color), 1) 50%
     );
-    transition: all 0.1s ease-out;
     cursor: pointer;
-    overflow: hidden;
   }
 
   .news-item:not([fullscreen]) .news:has(.news-content:hover) {
@@ -178,12 +168,17 @@ header {
     z-index: -1;
   }
 
+  .news-item[focus]:not([fullscreen]) .news-image {
+    -webkit-filter: grayscale(0) blur(0);
+    filter: grayscale(0) blur(0);
+  }
+
   .news-item:not([fullscreen]) .news-content {
     position: absolute;
     right: 0;
     width: 50%;
     height: 100%;
-    padding: 2rem;
+    padding: 2rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -194,17 +189,17 @@ header {
     width: 60%;
   }
 
-  .news-item:not([fullscreen]) .news-title:first-child {
+  .news-item:not([fullscreen]) .news-header *:not(.news-title),
+  .news-item:not([fullscreen]) .news-body *:not(:first-child) {
+    display: none;
+  }
+
+  .news-item:not([fullscreen]) .news-title {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
-  }
-
-  .news-item:not([fullscreen]) .news-header *:not(.news-title),
-  .news-item:not([fullscreen]) .news-body *:not(:first-child) {
-    display: none;
   }
 
   .news-item:not([fullscreen]) .news-paragraph {
@@ -224,46 +219,53 @@ header {
     display: none;
   }
 
-  .news-item[fullscreen] .news {
-    position: relative;
-    height: fit-content;
-    width: 100%;
+  .news-item[fullscreen] {
   }
 
-  .news-item[fullscreen] .news-content {
-    padding-top: 50vh;
-    margin-top: 0;
+  .news-item[fullscreen] .news {
   }
 
   .news-item[fullscreen] .news-image {
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+    vertical-align: bottom;
+  }
+
+  .news-item[fullscreen] .news-content {
+    position: relative;
+    padding: 3rem 6rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5rem;
+  }
+
+  .news-item[fullscreen] .news-content::before {
+    content: "";
     position: absolute;
-    filter: brightness(0.8);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(var(--bg-color));
+    filter: brightness(0.7);
   }
 
-  #close-fullscreen {
-    position: fixed;
-    top: 8px;
-    right: 8px;
-    clip-path: circle();
-    cursor: pointer;
-    transition: transform 200ms, filter 100ms;
+  .news-item[fullscreen] .news-header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
   }
 
-  #close-fullscreen:hover {
-    filter: brightness(140%);
-    transform: scale(1.1);
+  .news-item[fullscreen] .news-subtitle {
+    font-size: 1.275rem !important;
   }
 
-  #close-fullscreen:active:hover {
-    filter: brightness(90%);
-  }
-
-  #close-fullscreen .material-symbols-outlined {
-    transition: transform 300ms;
-  }
-
-  #close-fullscreen:hover .material-symbols-outlined {
-    transform: rotate(180deg);
+  .news-item[fullscreen] .news-body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.25rem;
   }
 
   #news-section:has(.news-item[fullscreen]) #close-fullscreen {
@@ -310,4 +312,30 @@ header {
 
 #next {
   right: 1rem;
+}
+
+#close-fullscreen {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  clip-path: circle();
+  cursor: pointer;
+  transition: transform 200ms, filter 100ms;
+}
+
+#close-fullscreen:hover {
+  filter: brightness(140%);
+  transform: scale(1.1);
+}
+
+#close-fullscreen:active:hover {
+  filter: brightness(90%);
+}
+
+#close-fullscreen .material-symbols-outlined {
+  transition: transform 300ms;
+}
+
+#close-fullscreen:hover .material-symbols-outlined {
+  transform: rotate(180deg);
 }
