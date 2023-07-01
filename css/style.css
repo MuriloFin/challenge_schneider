@@ -7,7 +7,7 @@ main {
 }
 
 h1 {
-  color: #00ff00;
+  color: #343E3D;
   text-align: center;
   margin-top: 1%;
   font-family: "Bagel Fat One", cursive;
@@ -173,11 +173,13 @@ footer {
   justify-content: center;
   margin: auto;
   width: 15%;
+  margin-top: 5%;
 }
 
 .return a:hover {
-  background: #afe1af;
-  color: black;
+  background-color: #6a4a3a;
+  color: white;
+  filter: brightness(120%);
 }
 
 .linha1 .row .col-md-4 img {
@@ -195,16 +197,31 @@ footer {
   margin-top: 2%;
   display: flex;
   justify-content: center;
-  background-color: #afe1af;
-  color: black;
+  background-color: #235d23;
+  color: white;
   border: 1px solid black;
+}
+
+.linha1 a:hover{
+  background-color: #235d23;
+  filter: brightness(120%);
+}
+
+.linha2 a:hover{
+  background-color: #235d23;
+  filter: brightness(120%);
 }
 
 .linha2 a {
   margin-top: 2%;
   display: flex;
   justify-content: center;
-  background-color: #afe1af;
-  color: black;
+  background-color: #235d23;
+  color: white;
   border: 1px solid black;
+}
+
+
+#bgdicas{
+  background-color: #afe1af;
 }
