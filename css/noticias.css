@@ -19,9 +19,16 @@ header {
   font-family: var(--text), Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.news-paragraph a {
+  font-weight: bolder;
+}
+
+.news-source {
+  filter: brightness(90%);
+}
+
 .news-paragraph a,
 .news-source {
-  font-weight: bolder;
   text-decoration: none;
   color: var(--white);
   position: relative;
@@ -190,6 +197,13 @@ header {
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+
+  .news-item:not([fullscreen]) .news-header a.news-source {
+    display: inline-block;
+    position: absolute;
+    bottom: 3rem;
+    right: 1rem;
   }
 
   .news-item:not([fullscreen]) .news-paragraph {

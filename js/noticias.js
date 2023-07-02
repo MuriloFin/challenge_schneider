@@ -67,6 +67,10 @@ function newsInitializer() {
   }
 
   function fullScreenNewsItem(e) {
+    if (e.target.tagName === "A") {
+      return;
+    }
+
     const newsItem = extractNewsItem(e.target);
 
     newsItem.setAttribute("fullscreen", "");
