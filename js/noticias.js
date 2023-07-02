@@ -1,138 +1,160 @@
-const newsItems = document.querySelectorAll(".news-item");
-const breakPointLarge = parseInt(
-  getComputedStyle(document.documentElement).getPropertyValue(
-    "--bs-breakpoint-lg"
-  )
-);
-
-// ---------------------------- AUTO FOCUS ----------------------------
-newsItems[0].setAttribute("focus", "");
-
-const newsItemHeight = newsItems[0].clientHeight;
-
-function focusNewsItemOnScroll() {
-  const newsItemToFocus = getNewsItemToFocus();
-  const newsItemOnFocus = document.querySelector(".news-item[focus]");
-
-  if (newsItemToFocus !== newsItemOnFocus) {
-    updateNewsItemFocused(newsItemOnFocus, newsItemToFocus);
-  }
-}
-
-function getNewsItemToFocus() {
-  const scrollY = window.scrollY;
-
-  const newsItemToFocusIndex = Math.floor(
-    (scrollY + newsItemHeight / 2) / newsItemHeight
+function newsInitializer() {
+  // Global Variables
+  const newsItems = document.querySelectorAll(".news-item");
+  const breakPointLarge = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--bs-breakpoint-lg"
+    )
   );
 
-  return newsItems[newsItemToFocusIndex];
-}
+  // NEWS ITEM STYLE COLOR
+  const rgbColors = [
+    [0, 73, 83],
+    [163, 31, 52],
+    [27, 77, 62],
+    [0, 34, 68],
+  ];
 
-function updateNewsItemFocused(newsItemToUnfocus, newsItemToFocus) {
-  newsItemToUnfocus.removeAttribute("focus");
-  newsItemToFocus.setAttribute("focus", "");
-}
+  rgbColors.reduceRight((newsItemsMap, rgbColor, index) => {
+    newsItemsMap.forEach((newsItem, key) => {
+      const isDivisible = (+key + 1) % (index + 1) === 0;
 
-window.addEventListener("resize", toggleFocusNewsItemOnScrollEventListener);
+      if (isDivisible) {
+        newsItem.style.setProperty("--bg-color-rgb", rgbColor);
+        newsItemsMap.delete(key);
+      }
+    });
 
-toggleFocusNewsItemOnScrollEventListener();
+    return newsItemsMap;
+  }, new Map(Object.entries({ ...newsItems })));
 
-function toggleFocusNewsItemOnScrollEventListener() {
-  const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
+  // ---------------------------- AUTO FOCUS ----------------------------
+  newsItems[0].setAttribute("focus", "");
 
-  if (window.innerWidth >= breakPointLarge && !newsItemFullScreen) {
-    focusNewsItemOnScroll();
-    window.addEventListener("scroll", focusNewsItemOnScroll);
-  } else {
+  const newsItemHeight = newsItems[0].clientHeight;
+
+  function focusNewsItemOnScroll() {
+    const newsItemToFocus = getNewsItemToFocus();
+    const newsItemOnFocus = document.querySelector(".news-item[focus]");
+
+    if (newsItemToFocus !== newsItemOnFocus) {
+      updateNewsItemFocused(newsItemOnFocus, newsItemToFocus);
+    }
+  }
+
+  function getNewsItemToFocus() {
+    const scrollY = window.scrollY;
+
+    const newsItemToFocusIndex = Math.floor(
+      (scrollY + newsItemHeight / 2) / newsItemHeight
+    );
+
+    return newsItems[newsItemToFocusIndex];
+  }
+
+  function updateNewsItemFocused(newsItemToUnfocus, newsItemToFocus) {
+    newsItemToUnfocus.removeAttribute("focus");
+    newsItemToFocus.setAttribute("focus", "");
+  }
+
+  // ---------------------------- FULLSCREEN HANDLER ----------------------------
+  function extractNewsItem(element) {
+    if (element.classList.contains("news-item")) {
+      return element;
+    }
+
+    return extractNewsItem(element.parentElement);
+  }
+
+  function fullScreenNewsItem(e) {
+    const newsItem = extractNewsItem(e.target);
+
+    newsItem.setAttribute("fullscreen", "");
+
     window.removeEventListener("scroll", focusNewsItemOnScroll);
   }
-}
 
-// ---------------------------- FULLSCREEN HANDLER ----------------------------
-function extractNewsItem(element) {
-  if (element.classList.contains("news-item")) {
-    return element;
+  document.querySelector("#close-fullscreen").addEventListener("click", () => {
+    const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
+
+    newsItemFullScreen.removeAttribute("fullscreen");
+    newsItemFullScreen.scrollIntoView();
+    window.addEventListener("scroll", focusNewsItemOnScroll);
+  });
+
+  // ---------------------------- CARROUSEL HANDLER ----------------------------
+  newsItems[0].setAttribute("active", "");
+
+  document.querySelector("#previous").addEventListener("click", () => {
+    const indexNewsItemActive = [...newsItems].findIndex((newsItem) =>
+      newsItem.hasAttribute("active")
+    );
+
+    toggleActive(
+      newsItems[indexNewsItemActive],
+      findPrevious(indexNewsItemActive)
+    );
+  });
+
+  document.querySelector("#next").addEventListener("click", () => {
+    const newsItemActiveIndex = [...newsItems].findIndex((newsItem) =>
+      newsItem.hasAttribute("active")
+    );
+
+    toggleActive(newsItems[newsItemActiveIndex], findNext(newsItemActiveIndex));
+  });
+
+  function toggleActive(previousElement, targetElement) {
+    previousElement.removeAttribute("active");
+    targetElement.setAttribute("active", "");
   }
 
-  return extractNewsItem(element.parentElement);
-}
-
-function fullScreenNewsItem(e) {
-  const newsItem = extractNewsItem(e.target);
-
-  newsItem.setAttribute("fullscreen", "");
-
-  window.removeEventListener("scroll", focusNewsItemOnScroll);
-}
-
-document.querySelector("#close-fullscreen").addEventListener("click", () => {
-  const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
-
-  newsItemFullScreen.removeAttribute("fullscreen");
-  newsItemFullScreen.scrollIntoView();
-  window.addEventListener("scroll", focusNewsItemOnScroll);
-});
-
-window.addEventListener("resize", toggleFullScreenNewsItemEventListener);
-
-toggleFullScreenNewsItemEventListener();
-
-function toggleFullScreenNewsItemEventListener() {
-  if (window.innerWidth >= breakPointLarge) {
-    newsItems.forEach((newsItem) => {
-      newsItem.addEventListener("click", fullScreenNewsItem);
-    });
-  } else {
-    newsItems.forEach((newsItem) => {
-      newsItem.removeEventListener("click", fullScreenNewsItem);
-    });
+  function findNext(activeElementIndex) {
+    if (activeElementIndex === newsItems.length - 1) {
+      return newsItems[0];
+    } else {
+      return newsItems[activeElementIndex + 1];
+    }
   }
-}
 
-// ---------------------------- CARROUSEL HANDLER ----------------------------
-newsItems[0].setAttribute("active", "");
-
-document.querySelector("#previous").addEventListener("click", () => {
-  const indexNewsItemActive = [...newsItems].findIndex((newsItem) =>
-    newsItem.hasAttribute("active")
-  );
-
-  toggleActive(
-    newsItems[indexNewsItemActive],
-    findPrevious(indexNewsItemActive)
-  );
-});
-
-document.querySelector("#next").addEventListener("click", () => {
-  const newsItemActiveIndex = [...newsItems].findIndex((newsItem) =>
-    newsItem.hasAttribute("active")
-  );
-
-  toggleActive(newsItems[newsItemActiveIndex], findNext(newsItemActiveIndex));
-});
-
-function toggleActive(previousElement, targetElement) {
-  previousElement.removeAttribute("active");
-  targetElement.setAttribute("active", "");
-}
-
-function findNext(activeElementIndex) {
-  if (activeElementIndex === newsItems.length - 1) {
-    return newsItems[0];
-  } else {
-    return newsItems[activeElementIndex + 1];
+  function findPrevious(activeElementIndex) {
+    if (activeElementIndex === 0) {
+      return newsItems[newsItems.length - 1];
+    } else {
+      return newsItems[activeElementIndex - 1];
+    }
   }
-}
 
-function findPrevious(activeElementIndex) {
-  if (activeElementIndex === 0) {
-    return newsItems[newsItems.length - 1];
-  } else {
-    return newsItems[activeElementIndex - 1];
+  // ---------------------------- EVENTS HANDLER ----------------------------
+  window.addEventListener("resize", eventsHandler);
+  eventsHandler();
+
+  function eventsHandler() {
+    if (window.innerWidth >= breakPointLarge) {
+      const newsItemFullScreen = document.querySelector(
+        ".news-item[fullscreen]"
+      );
+
+      // Focus
+      if (!newsItemFullScreen) {
+        focusNewsItemOnScroll();
+        window.addEventListener("scroll", focusNewsItemOnScroll);
+      }
+
+      // FullScreen
+      newsItems.forEach((newsItem) => {
+        newsItem.addEventListener("click", fullScreenNewsItem);
+      });
+    } else {
+      // Focus
+      window.removeEventListener("scroll", focusNewsItemOnScroll);
+
+      // FullScreen
+      newsItems.forEach((newsItem) => {
+        newsItem.removeEventListener("click", fullScreenNewsItem);
+      });
+    }
   }
 }
 
-window.addEventListener('resize', () => {
-  
-})
+newsInitializer();
