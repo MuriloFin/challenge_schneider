@@ -73,9 +73,9 @@ function newsInitializer() {
 
     const newsItem = extractNewsItem(e.target);
 
-    newsItem.setAttribute("fullscreen", "");
-
     window.removeEventListener("scroll", focusNewsItemOnScroll);
+    newsItem.setAttribute("fullscreen", "");
+    newsItem.scrollIntoView();
   }
 
   document.querySelector("#close-fullscreen").addEventListener("click", () => {
