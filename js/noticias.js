@@ -111,6 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleActive(previousElement, targetElement) {
     previousElement.removeAttribute("active");
     targetElement.setAttribute("active", "");
+
+    updateNewsBadge();
   }
 
   function findNext(activeElementIndex) {
@@ -128,6 +130,32 @@ document.addEventListener("DOMContentLoaded", () => {
       return newsItems[activeElementIndex - 1];
     }
   }
+
+  // ---------------------------- BADGE HANDLER ----------------------------
+  const newsBadge = document.querySelector("#news-badge");
+
+  const headerHeight = document.querySelector("header#cabecalho").clientHeight;
+  const newsBadgeScrollY = newsBadge.offsetTop;
+  const newsBadgeTopDistance = 30;
+
+  window.addEventListener("scroll", () => {
+    const offsetGapY = newsBadgeScrollY - window.scrollY;
+
+    if (headerHeight >= window.scrollY) {
+      newsBadge.style.top = `${offsetGapY}px`;
+    } else {
+      newsBadge.style.top = `${newsBadgeTopDistance}px`;
+    }
+  });
+
+  function updateNewsBadge() {
+    const newsItemActive = document.querySelector(".news-item[active]");
+    const newsItemActiveIndex = [...newsItems].indexOf(newsItemActive);
+
+    newsBadge.textContent = `${newsItemActiveIndex + 1} / ${newsItems.length}`;
+  }
+
+  updateNewsBadge();
 
   // ---------------------------- EVENTS HANDLER ----------------------------
   window.addEventListener("resize", eventsHandler);

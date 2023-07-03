@@ -8,6 +8,7 @@
   --bg-green: #32382c;
   --white: #f8f8f8;
   --black: #292c25;
+  --black-rgb: 41, 44, 37;
 }
 
 * {
@@ -20,7 +21,8 @@ body {
   min-height: 100svh;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
 }
 
