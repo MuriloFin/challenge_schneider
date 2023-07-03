@@ -180,6 +180,7 @@ footer {
   background-color: #6a4a3a;
   color: white;
   filter: brightness(120%);
+  border: 1px solid black;
 }
 
 .linha1 .row .col-md-4 img {
@@ -224,10 +225,6 @@ footer {
 
 #bgdicas{
   background-color: #235d239c;
-  height: 100%;
-}
-
-main{
   height: 100%;
 }
 
