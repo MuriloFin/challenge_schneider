@@ -1,4 +1,4 @@
-function newsInitializer() {
+document.addEventListener("DOMContentLoaded", () => {
   // Global Variables
   const newsItems = document.querySelectorAll(".news-item");
   const breakPointLarge = parseInt(
@@ -159,6 +159,4 @@ function newsInitializer() {
       });
     }
   }
-}
-
-newsInitializer();
+});
