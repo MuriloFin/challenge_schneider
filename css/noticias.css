@@ -68,6 +68,25 @@ header {
 
 /* ---------------------------- MOBILE ---------------------------- */
 @media (max-width: 992px) {
+  header#cabecalho nav ul li {
+    width: 100%;
+  }
+
+  header#cabecalho nav ul {
+    position: absolute;
+    top: 8px;
+  }
+
+  #news-badge {
+    position: fixed;
+    top: 100px;
+    left: 30px;
+    z-index: 9999;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    background-color: rgba(var(--black-rgb), .9);
+  }
+
   .news-item:not([active]) {
     display: none;
   }
