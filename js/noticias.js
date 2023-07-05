@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
 
     newsItemFullScreen.removeAttribute("fullscreen");
-    newsItemFullScreen.scrollIntoView();
     window.scrollTo({ top: newsItemFullScreen.offsetTop, behavior: "instant" });
     window.addEventListener("scroll", focusNewsItemOnScroll);
   });
