@@ -1,32 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Global Variables
   const newsItems = document.querySelectorAll(".news-item");
-  const breakPointLarge = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      "--bs-breakpoint-lg"
-    )
-  );
-
-  // NEWS ITEM STYLE COLOR
-  const rgbColors = [
-    [0, 73, 83],
-    [163, 31, 52],
-    [27, 77, 62],
-    [0, 34, 68],
-  ];
-
-  rgbColors.reduceRight((newsItemsMap, rgbColor, index) => {
-    newsItemsMap.forEach((newsItem, key) => {
-      const isDivisible = (+key + 1) % (index + 1) === 0;
-
-      if (isDivisible) {
-        newsItem.style.setProperty("--bg-color-rgb", rgbColor);
-        newsItemsMap.delete(key);
-      }
-    });
-
-    return newsItemsMap;
-  }, new Map(Object.entries({ ...newsItems })));
+  const breakPointLarge = 992;
 
   // ---------------------------- AUTO FOCUS ----------------------------
   newsItems[0].setAttribute("focus", "");
@@ -75,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.removeEventListener("scroll", focusNewsItemOnScroll);
     newsItem.setAttribute("fullscreen", "");
-    newsItem.scrollIntoView();
+    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
   document.querySelector("#close-fullscreen").addEventListener("click", () => {
@@ -83,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     newsItemFullScreen.removeAttribute("fullscreen");
     newsItemFullScreen.scrollIntoView();
+    window.scrollTo({ top: newsItemFullScreen.offsetTop, behavior: "instant" });
     window.addEventListener("scroll", focusNewsItemOnScroll);
   });
 
