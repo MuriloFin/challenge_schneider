@@ -84,7 +84,7 @@ header {
     z-index: 9999;
     padding: 0.5rem 0.75rem;
     border-radius: 9999px;
-    background-color: rgba(var(--black-rgb), .9);
+    background-color: rgba(var(--black-rgb), 0.9);
   }
 
   .news-item:not([active]) {
@@ -344,4 +344,20 @@ header {
 
 #close-fullscreen:hover .material-symbols-outlined {
   transform: rotate(180deg);
+}
+
+.news-item-type-1 {
+  --bg-color-rgb: 0, 73, 83;
+}
+
+.news-item-type-2 {
+  --bg-color-rgb: 163, 31, 52;
+}
+
+.news-item-type-3 {
+  --bg-color-rgb: 27, 77, 62;
+}
+
+.news-item-type-4 {
+  --bg-color-rgb: 0, 34, 68;
 }
