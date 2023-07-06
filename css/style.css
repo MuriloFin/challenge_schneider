@@ -245,12 +245,15 @@ footer {
 }
 
 footer{
-margin-top: 10%;
+margin-bottom: 0px;
 display: flex;
 justify-content: space-evenly;
 padding-top: 5px;
 padding-bottom: 5px;
 background-color: #32382c;
+position: absolute;
+bottom: 0;
+width: 100%;
 }
 
 footer a{
