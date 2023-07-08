@@ -16,7 +16,7 @@ main {
 }
 
 h1 {
-  color: #343E3D;
+  color: #2b3232;
   text-align: center;
   margin-top: 1%;
   font-family: "Bagel Fat One", cursive;
@@ -164,9 +164,6 @@ h6 {
   border-radius: 20px;
 }
 
-footer {
-  margin-top: 5%;
-}
 
 .botoes a:hover {
   background: #afe1af;
@@ -252,8 +249,9 @@ padding-top: 5px;
 padding-bottom: 5px;
 background-color: #32382c;
 position: absolute;
-bottom: 0;
 width: 100%;
+bottom: auto;
+margin-top: 10%;
 }
 
 footer a{
