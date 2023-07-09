@@ -73,6 +73,30 @@ header#cabecalho nav ul li.pagina-selecionada > a {
   filter: brightness(80%);
 }
 
+footer{
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: end;
+  column-gap: 2.5rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #32382c;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 5px 2rem;
+  }
+  
+  footer a{
+    text-decoration: none;
+    color: #bebebe;
+    font-size: 36px;
+  }
+  
+  footer a:hover{
+    filter: brightness(120%);
+  }
+
 @media (max-width: 768px) {
   header#cabecalho nav ul li {
     width: 100%;
@@ -83,3 +107,4 @@ header#cabecalho nav ul li.pagina-selecionada > a {
     top: 8px;
   }
 }
+
