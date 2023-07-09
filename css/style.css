@@ -248,10 +248,9 @@ justify-content: space-evenly;
 padding-top: 5px;
 padding-bottom: 5px;
 background-color: #32382c;
-position: absolute;
+position: fixed;
 width: 100%;
-bottom: auto;
-margin-top: 10%;
+bottom: 0;
 }
 
 footer a{
