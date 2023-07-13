@@ -110,3 +110,15 @@ footer{
   }
 }
 
+footer img{
+  height: 38px;
+  width: 100px;
+  border: none;
+  display: inline;
+  margin-left: -90%;
+  position: absolute;
+}
+
+.logoschneider img{
+  margin-left: -85%;
+}
