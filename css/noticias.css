@@ -7,8 +7,17 @@ header {
   z-index: 999;
 }
 
+main {
+  padding: 2.5rem 0;
+}
+
+footer {
+  position: static;
+}
+
 .news-source {
   align-self: end;
+  filter: brightness(90%);
 }
 
 .news-title {
@@ -21,10 +30,6 @@ header {
 
 .news-paragraph a {
   font-weight: bolder;
-}
-
-.news-source {
-  filter: brightness(90%);
 }
 
 .news-paragraph a,
@@ -144,13 +149,22 @@ header {
     transition: transform 350ms;
   }
 
-  .news-item:not([fullscreen]):hover {
-    filter: brightness(115%);
-  }
-
   .news-item[focus]:not([fullscreen]) {
     transform: scaleY(1.1);
+    filter: brightness(115%);
     z-index: 2;
+  }
+
+  .news-item:not([focus], [fullscreen]) {
+    filter: brightness(85%);
+  }
+
+  .news-item[focus]:not([fullscreen]):hover {
+    filter: brightness(150%);
+  }
+
+  .news-item:not([focus], [fullscreen]):hover {
+    filter: brightness(115%);
   }
 
   .news-item:not([fullscreen]) .news {
@@ -166,7 +180,7 @@ header {
     cursor: pointer;
   }
 
-  .news-item:not([fullscreen]) .news:has(.news-content:hover) {
+  .news-item:not([fullscreen]) .news[expand-content] {
     background: linear-gradient(
       90deg,
       rgba(240, 248, 255, 0) 0%,

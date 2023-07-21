@@ -18,13 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function getNewsItemToFocus() {
-    const scrollY = window.scrollY;
-
-    const newsItemToFocusIndex = Math.floor(
-      (scrollY + newsItemHeight / 2) / newsItemHeight
+    const main = document.querySelector("main");
+    const padding = parseInt(
+      window.getComputedStyle(main).getPropertyValue("padding-top")
     );
 
-    return newsItems[newsItemToFocusIndex];
+    const topOffset = padding + main.offsetTop;
+    const scroll = window.scrollY - topOffset;
+
+    const halfScreenHeight = window.innerHeight / 2;
+
+    const newsItemFocusApproach = Math.floor(
+      (scroll + halfScreenHeight) / newsItemHeight
+    );
+
+    return newsItems[Math.max(newsItemFocusApproach, 0)];
   }
 
   function updateNewsItemFocused(newsItemToUnfocus, newsItemToFocus) {
@@ -32,13 +40,52 @@ document.addEventListener("DOMContentLoaded", () => {
     newsItemToFocus.setAttribute("focus", "");
   }
 
+  // ---------------------------- EXPAND CONTENT ----------------------------
+  const listNewsContent = document.querySelectorAll(".news-content");
+
+  function extractNews(element) {
+    let currentElement = element;
+
+    while (true) {
+      if (!currentElement) {
+        return null;
+      }
+
+      if (currentElement.classList.contains("news")) {
+        return currentElement;
+      }
+
+      currentElement = currentElement.parentElement;
+    }
+  }
+
+  function expandContent(e) {
+    const news = extractNews(e.target);
+
+    news.setAttribute("expand-content", "");
+  }
+
+  function shrinkContent(e) {
+    const news = extractNews(e.target);
+
+    news.removeAttribute("expand-content");
+  }
+
   // ---------------------------- FULLSCREEN HANDLER ----------------------------
   function extractNewsItem(element) {
-    if (element.classList.contains("news-item")) {
-      return element;
-    }
+    let currentElement = element;
 
-    return extractNewsItem(element.parentElement);
+    while (true) {
+      if (!currentElement) {
+        return null;
+      }
+
+      if (currentElement.classList.contains("news-item")) {
+        return currentElement;
+      }
+
+      currentElement = currentElement.parentElement;
+    }
   }
 
   function fullScreenNewsItem(e) {
@@ -152,6 +199,12 @@ document.addEventListener("DOMContentLoaded", () => {
       newsItems.forEach((newsItem) => {
         newsItem.addEventListener("click", fullScreenNewsItem);
       });
+
+      // ExpandContent
+      listNewsContent.forEach((newsContent) => {
+        newsContent.addEventListener("mouseenter", expandContent);
+        newsContent.addEventListener("mouseleave", shrinkContent);
+      });
     } else {
       // Focus
       window.removeEventListener("scroll", focusNewsItemOnScroll);
@@ -159,6 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // FullScreen
       newsItems.forEach((newsItem) => {
         newsItem.removeEventListener("click", fullScreenNewsItem);
+      });
+
+      // ExpandContent
+      listNewsContent.forEach((newsContent) => {
+        newsContent.removeEventListener("mouseenter", expandContent);
+        newsContent.removeEventListener("mouseleave", shrinkContent);
       });
     }
   }
