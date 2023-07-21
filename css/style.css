@@ -1,5 +1,14 @@
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #235d239c;
+  overflow-x: hidden;
+}
+
+.navbar{
+  background-color: #32382c;
+  margin-top: -4px;
+  margin-left: -13px;
+  margin-right: -13px;
 }
 
 main {
@@ -7,7 +16,7 @@ main {
 }
 
 h1 {
-  color: #343E3D;
+  color: #2b3232;
   text-align: center;
   margin-top: 1%;
   font-family: "Bagel Fat One", cursive;
@@ -155,9 +164,6 @@ h6 {
   border-radius: 20px;
 }
 
-footer {
-  margin-top: 5%;
-}
 
 .botoes a:hover {
   background: #afe1af;
@@ -167,7 +173,7 @@ footer {
 .return a {
   background-color: #6a4a3a;
   border-radius: 20px;
-  border: none;
+  border: 1px solid black;
   margin-bottom: 5%;
   display: flex;
   justify-content: center;
@@ -180,6 +186,7 @@ footer {
   background-color: #6a4a3a;
   color: white;
   filter: brightness(120%);
+  border: 1px solid black;
 }
 
 .linha1 .row .col-md-4 img {
@@ -200,6 +207,7 @@ footer {
   background-color: #235d23;
   color: white;
   border: 1px solid black;
+  margin-bottom: 15%;
 }
 
 .linha1 a:hover{
@@ -223,5 +231,13 @@ footer {
 
 
 #bgdicas{
-  background-color: #afe1af;
+  background-color: #235d239c;
+  padding-bottom: 5%;
+  margin-bottom: -10%;
 }
+
+.return{
+  margin-bottom: -1%;
+  margin-top: -2%;
+}
+
