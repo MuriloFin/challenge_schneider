@@ -201,10 +201,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // ExpandContent
-      listNewsContent.forEach((newsContent) => {
+      listNewsContent.forEach(newsContent => {
         newsContent.addEventListener("mouseenter", expandContent);
         newsContent.addEventListener("mouseleave", shrinkContent);
-      });
+      })
     } else {
       // Focus
       window.removeEventListener("scroll", focusNewsItemOnScroll);
@@ -215,10 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // ExpandContent
-      listNewsContent.forEach((newsContent) => {
+      listNewsContent.forEach(newsContent => {
         newsContent.removeEventListener("mouseenter", expandContent);
         newsContent.removeEventListener("mouseleave", shrinkContent);
-      });
+      })
     }
   }
 });
