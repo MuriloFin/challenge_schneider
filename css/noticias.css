@@ -252,11 +252,11 @@ footer {
   }
 
   /* ---------------------------- FULLSCREEN ---------------------------- */
-  .news-list:has(.news-item[fullscreen]) .news-item:not([fullscreen]) {
+  body[onFullscreen] .news-list .news-item:not([fullscreen]) {
     display: none;
   }
 
-  body:has(.news-item[fullscreen]) :is(header, footer) {
+  body[onFullscreen] :is(header, footer) {
     display: none;
   }
 
@@ -304,7 +304,7 @@ footer {
     row-gap: 2.25rem;
   }
 
-  #news-section:has(.news-item[fullscreen]) #close-fullscreen {
+  body[onFullscreen] #close-fullscreen {
     display: inline-block !important;
   }
 }

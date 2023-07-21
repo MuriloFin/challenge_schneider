@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Global Variables
+  const body = document.querySelector("body");
   const newsItems = document.querySelectorAll(".news-item");
   const breakPointLarge = 992;
 
@@ -72,6 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------------------------- FULLSCREEN HANDLER ----------------------------
+  const closeButton = document.querySelector("#close-fullscreen");
+
   function extractNewsItem(element) {
     let currentElement = element;
 
@@ -96,14 +99,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const newsItem = extractNewsItem(e.target);
 
     window.removeEventListener("scroll", focusNewsItemOnScroll);
+
+    body.setAttribute("onFullscreen", "");
     newsItem.setAttribute("fullscreen", "");
+
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
-  document.querySelector("#close-fullscreen").addEventListener("click", () => {
+  closeButton.addEventListener("click", () => {
     const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
 
+    body.removeAttribute("onFullscreen");
     newsItemFullScreen.removeAttribute("fullscreen");
+
     window.scrollTo({ top: newsItemFullScreen.offsetTop, behavior: "instant" });
     window.addEventListener("scroll", focusNewsItemOnScroll);
   });
@@ -201,10 +209,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // ExpandContent
-      listNewsContent.forEach(newsContent => {
+      listNewsContent.forEach((newsContent) => {
         newsContent.addEventListener("mouseenter", expandContent);
         newsContent.addEventListener("mouseleave", shrinkContent);
-      })
+      });
     } else {
       // Focus
       window.removeEventListener("scroll", focusNewsItemOnScroll);
@@ -215,10 +223,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // ExpandContent
-      listNewsContent.forEach(newsContent => {
+      listNewsContent.forEach((newsContent) => {
         newsContent.removeEventListener("mouseenter", expandContent);
         newsContent.removeEventListener("mouseleave", shrinkContent);
-      })
+      });
     }
   }
 });
