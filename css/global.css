@@ -37,6 +37,14 @@ li {
   padding: 4px 6px;
 }
 
+header#cabecalho {
+  pointer-events: none;
+}
+
+header#cabecalho *:not(nav, div, ul) {
+  pointer-events: auto;
+}
+
 header#cabecalho nav ul li {
   width: 208px;
 }
