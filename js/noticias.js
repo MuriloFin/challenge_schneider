@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Global Variables
+  const body = document.querySelector("body");
+  const header = document.querySelector("header");
   const newsItems = document.querySelectorAll(".news-item");
   const breakPointLarge = 992;
 
   // ---------------------------- AUTO FOCUS ----------------------------
   newsItems[0].setAttribute("focus", "");
-
-  const newsItemHeight = newsItems[0].clientHeight;
 
   function focusNewsItemOnScroll() {
     const newsItemToFocus = getNewsItemToFocus();
@@ -18,27 +18,80 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function getNewsItemToFocus() {
-    const scrollY = window.scrollY;
+    const main = document.querySelector("main");
+    const padding = parseInt(
+      window.getComputedStyle(main).getPropertyValue("padding-top")
+    );
+    const newsItemHeight = newsItems[0].clientHeight;
 
-    const newsItemToFocusIndex = Math.floor(
-      (scrollY + newsItemHeight / 2) / newsItemHeight
+    const topOffset = padding + main.offsetTop;
+    const scroll = window.scrollY - topOffset;
+
+    const halfScreenHeight = window.innerHeight / 2;
+
+    const newsItemFocusApproach = Math.floor(
+      (scroll + halfScreenHeight) / newsItemHeight
     );
 
-    return newsItems[newsItemToFocusIndex];
+    return newsItems[Math.max(newsItemFocusApproach, 0)];
   }
 
   function updateNewsItemFocused(newsItemToUnfocus, newsItemToFocus) {
-    newsItemToUnfocus.removeAttribute("focus");
     newsItemToFocus.setAttribute("focus", "");
+
+    if (newsItemToUnfocus) {
+      newsItemToUnfocus.removeAttribute("focus");
+    }
+  }
+
+  // ---------------------------- EXPAND CONTENT ----------------------------
+  const listNewsContent = document.querySelectorAll(".news-content");
+
+  function extractNews(element) {
+    let currentElement = element;
+
+    while (true) {
+      if (!currentElement) {
+        return null;
+      }
+
+      if (currentElement.classList.contains("news")) {
+        return currentElement;
+      }
+
+      currentElement = currentElement.parentElement;
+    }
+  }
+
+  function expandContent(e) {
+    const news = extractNews(e.target);
+
+    news.setAttribute("expand-content", "");
+  }
+
+  function shrinkContent(e) {
+    const news = extractNews(e.target);
+
+    news.removeAttribute("expand-content");
   }
 
   // ---------------------------- FULLSCREEN HANDLER ----------------------------
-  function extractNewsItem(element) {
-    if (element.classList.contains("news-item")) {
-      return element;
-    }
+  const closeButton = document.querySelector("#close-fullscreen");
 
-    return extractNewsItem(element.parentElement);
+  function extractNewsItem(element) {
+    let currentElement = element;
+
+    while (true) {
+      if (!currentElement) {
+        return null;
+      }
+
+      if (currentElement.classList.contains("news-item")) {
+        return currentElement;
+      }
+
+      currentElement = currentElement.parentElement;
+    }
   }
 
   function fullScreenNewsItem(e) {
@@ -49,14 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const newsItem = extractNewsItem(e.target);
 
     window.removeEventListener("scroll", focusNewsItemOnScroll);
+
+    body.setAttribute("onFullscreen", "");
     newsItem.setAttribute("fullscreen", "");
+
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
-  document.querySelector("#close-fullscreen").addEventListener("click", () => {
+  closeButton.addEventListener("click", () => {
     const newsItemFullScreen = document.querySelector(".news-item[fullscreen]");
 
+    body.removeAttribute("onFullscreen");
     newsItemFullScreen.removeAttribute("fullscreen");
+
     window.scrollTo({ top: newsItemFullScreen.offsetTop, behavior: "instant" });
     window.addEventListener("scroll", focusNewsItemOnScroll);
   });
@@ -109,17 +167,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------------------------- BADGE HANDLER ----------------------------
   const newsBadge = document.querySelector("#news-badge");
 
-  const headerHeight = document.querySelector("header#cabecalho").clientHeight;
-  const newsBadgeScrollY = newsBadge.offsetTop;
-  const newsBadgeTopDistance = 30;
+  const headerHeight = header.clientHeight;
+  const BADGE_TOP_DISTANCE = 30;
 
   window.addEventListener("scroll", () => {
-    const offsetGapY = newsBadgeScrollY - window.scrollY;
+    const headerGapToHidden = Math.max(headerHeight - window.scrollY, 0);
 
-    if (headerHeight >= window.scrollY) {
-      newsBadge.style.top = `${offsetGapY}px`;
+    if (headerGapToHidden >= BADGE_TOP_DISTANCE) {
+      newsBadge.style.top = `${headerGapToHidden}px`;
     } else {
-      newsBadge.style.top = `${newsBadgeTopDistance}px`;
+      newsBadge.style.top = `${BADGE_TOP_DISTANCE}px`;
     }
   });
 
@@ -142,15 +199,21 @@ document.addEventListener("DOMContentLoaded", () => {
         ".news-item[fullscreen]"
       );
 
+      // FullScreen
+      newsItems.forEach((newsItem) => {
+        newsItem.addEventListener("click", fullScreenNewsItem);
+      });
+
       // Focus
       if (!newsItemFullScreen) {
         focusNewsItemOnScroll();
         window.addEventListener("scroll", focusNewsItemOnScroll);
       }
 
-      // FullScreen
-      newsItems.forEach((newsItem) => {
-        newsItem.addEventListener("click", fullScreenNewsItem);
+      // ExpandContent
+      listNewsContent.forEach((newsContent) => {
+        newsContent.addEventListener("mouseenter", expandContent);
+        newsContent.addEventListener("mouseleave", shrinkContent);
       });
     } else {
       // Focus
@@ -159,6 +222,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // FullScreen
       newsItems.forEach((newsItem) => {
         newsItem.removeEventListener("click", fullScreenNewsItem);
+      });
+
+      // ExpandContent
+      listNewsContent.forEach((newsContent) => {
+        newsContent.removeEventListener("mouseenter", expandContent);
+        newsContent.removeEventListener("mouseleave", shrinkContent);
       });
     }
   }

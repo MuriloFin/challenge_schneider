@@ -7,8 +7,13 @@ header {
   z-index: 999;
 }
 
+footer {
+  position: static;
+}
+
 .news-source {
   align-self: end;
+  filter: brightness(90%);
 }
 
 .news-title {
@@ -21,10 +26,6 @@ header {
 
 .news-paragraph a {
   font-weight: bolder;
-}
-
-.news-source {
-  filter: brightness(90%);
 }
 
 .news-paragraph a,
@@ -75,6 +76,10 @@ header {
   header#cabecalho nav ul {
     position: absolute;
     top: 8px;
+  }
+
+  footer {
+    padding-top: 2rem;
   }
 
   #news-badge {
@@ -140,17 +145,30 @@ header {
     top: 0;
   }
 
+  footer {
+    padding-top: 3rem;
+  }
+
   .news-item:not([fullscreen]) {
     transition: transform 350ms;
   }
 
-  .news-item:not([fullscreen]):hover {
-    filter: brightness(115%);
-  }
-
   .news-item[focus]:not([fullscreen]) {
     transform: scaleY(1.1);
+    filter: brightness(115%);
     z-index: 2;
+  }
+
+  .news-item:not([focus], [fullscreen]) {
+    filter: brightness(85%);
+  }
+
+  .news-item[focus]:not([fullscreen]):hover {
+    filter: brightness(150%);
+  }
+
+  .news-item:not([focus], [fullscreen]):hover {
+    filter: brightness(115%);
   }
 
   .news-item:not([fullscreen]) .news {
@@ -166,7 +184,7 @@ header {
     cursor: pointer;
   }
 
-  .news-item:not([fullscreen]) .news:has(.news-content:hover) {
+  .news-item:not([fullscreen]) .news[expand-content] {
     background: linear-gradient(
       90deg,
       rgba(240, 248, 255, 0) 0%,
@@ -234,11 +252,11 @@ header {
   }
 
   /* ---------------------------- FULLSCREEN ---------------------------- */
-  .news-list:has(.news-item[fullscreen]) .news-item:not([fullscreen]) {
+  body[onFullscreen] .news-list .news-item:not([fullscreen]) {
     display: none;
   }
 
-  body:has(.news-item[fullscreen]) header {
+  body[onFullscreen] :is(header, footer) {
     display: none;
   }
 
@@ -286,7 +304,7 @@ header {
     row-gap: 2.25rem;
   }
 
-  #news-section:has(.news-item[fullscreen]) #close-fullscreen {
+  body[onFullscreen] #close-fullscreen {
     display: inline-block !important;
   }
 }
