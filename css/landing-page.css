@@ -114,6 +114,7 @@ img.icon {
   width: 8rem;
   cursor: grab;
   z-index: 1;
+  filter: saturate(1.2);
 }
 
 img.icon:nth-child(even) {
@@ -132,22 +133,23 @@ img.icon:active {
   object-fit: cover;
 }
 
-img.banana {
+img.icon:nth-child(1 of .icon) {
   left: 10%;
 }
 
-img.cigaret {
+img.icon:nth-child(2 of .icon) {
   left: 30%;
   top: 65%;
 }
 
-img.soda {
+img.icon:nth-child(3 of .icon) {
   left: 50%;
+  width: 5rem;
 }
 
 .trash {
   width: 8rem;
-  bottom: 1rem;
+  bottom: 25%;
   right: 1rem;
 }
 
