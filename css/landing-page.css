@@ -1,0 +1,199 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+}
+
+main > section {
+  height: 100vh;
+  width: 100%;
+}
+
+#landing-page {
+  background-image: url(../images/landing-page/wind-energy.jpg);
+  background-size: cover;
+  display: flex;
+}
+
+#landing-page article {
+  --content-box-percentage: 60%;
+  width: 60%;
+  height: 100%;
+  background-image: linear-gradient(
+    90deg,
+    #f5f7faef var(--content-box-percentage),
+    transparent
+  );
+}
+
+#landing-page article div {
+  width: var(--content-box-percentage);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#landing-page h1 {
+  font-family: var(--title);
+  font-size: 3.5rem;
+  background: -webkit-linear-gradient(45deg, #89d4cf, #734ae8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#landing-page h5 {
+  font-family: var(--sub-title);
+  font-size: 1.3rem;
+  color: var(--black);
+}
+
+#landing-page > img {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  padding-right: inherit;
+  top: 0;
+  right: 0;
+  object-fit: cover;
+}
+
+#landing-page-interactive {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    45deg,
+    #243b55,
+    #20334b,
+    #1c2c42,
+    #182539,
+    #141e30
+  );
+}
+
+#landing-page-interactive article {
+  width: 80%;
+  height: 90%;
+  position: relative;
+  overflow: hidden;
+}
+
+#landing-page-interactive article img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+#landing-page-interactive article > * {
+  position: absolute;
+}
+
+img.icon {
+  animation: floating ease-in-out 2.5s infinite alternate;
+  animation-composition: add;
+  top: 75%;
+  width: 8rem;
+  cursor: grab;
+  z-index: 1;
+}
+
+img.icon:nth-child(even) {
+  animation-direction: alternate-reverse;
+}
+
+img.icon:active {
+  cursor: grabbing;
+}
+
+.park {
+  width: 100%;
+  height: 100%;
+  filter: saturate(20%);
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+img.banana {
+  left: 10%;
+}
+
+img.cigaret {
+  left: 30%;
+  top: 65%;
+}
+
+img.soda {
+  left: 50%;
+}
+
+.trash {
+  width: 8rem;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.trash .content {
+  position: relative;
+}
+
+.trash img {
+  animation: jump 300ms ease-in-out;
+  animation-play-state: paused;
+}
+
+.reaction-icon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-size: 3rem;
+  transform: translate(-50%, -90%);
+  animation: up 1s ease-out forwards;
+  animation-composition: add;
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15vh) scale(1.25);
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(-1vh);
+  }
+  100% {
+    transform: translateY(1vh);
+  }
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(-2vh);
+  }
+}
