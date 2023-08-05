@@ -140,6 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     i.addEventListener("animationend", (e) => {
       e.target.remove();
+
+      if (!iconsLeft) {
+        trash.remove();
+      }
     });
 
     if (!iconsLeft) {

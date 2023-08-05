@@ -169,9 +169,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const headerHeight = header.clientHeight;
   const BADGE_TOP_DISTANCE = 30;
+  const BADGE_OFFSET_TOP = 40;
+
+  const BADGE_TOP = headerHeight + BADGE_OFFSET_TOP;
+
+  newsBadge.style.top = `${BADGE_TOP}px`;
 
   window.addEventListener("scroll", () => {
-    const headerGapToHidden = Math.max(headerHeight - window.scrollY, 0);
+    const headerGapToHidden = Math.max(BADGE_TOP - window.scrollY, 0);
 
     if (headerGapToHidden >= BADGE_TOP_DISTANCE) {
       newsBadge.style.top = `${headerGapToHidden}px`;
