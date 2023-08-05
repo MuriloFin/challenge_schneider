@@ -84,7 +84,6 @@ footer {
 
   #news-badge {
     position: fixed;
-    top: 100px;
     left: 30px;
     z-index: 9999;
     padding: 0.5rem 0.75rem;
@@ -141,7 +140,7 @@ footer {
 /* ---------------------------- DESKTOP ---------------------------- */
 @media (min-width: 992px) {
   header {
-    position: sticky;
+    position: fixed;
     top: 0;
   }
 
