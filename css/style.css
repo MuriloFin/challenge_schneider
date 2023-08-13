@@ -23,6 +23,15 @@ h1 {
   font-size: 90px;
 }
 
+.jogo{
+  padding-bottom: 50px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 1%;
+  font-family: "Bagel Fat One", cursive;
+  font-size: 30px;
+}
+
 #sobre {
   margin-top: 7%;
 }
@@ -239,5 +248,52 @@ h6 {
 .return{
   margin-bottom: -1%;
   margin-top: -2%;
+}
+
+.containerQuiz {
+  max-width: 600px;
+  margin-top: 20px; /* Espaçamento entre o conteúdo de navegação */
+  padding: 20px;
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.6); /* Sombra preta */
+  border-radius: 10px; /* Bordas arredondadas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#quiz-container {
+  margin-bottom: 20px;
+}
+
+#question {
+  margin-bottom: 10px;
+}
+
+#options {
+  margin-bottom: 20px;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#submit-btn {
+  display: none;
+  background-color: black;
+  color: rgb(255, 253, 253);
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 16px;
+}
+
+.containerQuiz button {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  border-radius: 5px; 
+  padding: 5px 15px; 
+  font-size: 16px; 
 }
 
