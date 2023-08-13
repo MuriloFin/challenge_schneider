@@ -1,6 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #235d239c;
+  background-color: #FFFDD0;
   overflow-x: hidden;
 }
 
@@ -231,7 +231,7 @@ h6 {
 
 
 #bgdicas{
-  background-color: #235d239c;
+  background-color: #FFFDD0;
   padding-bottom: 5%;
   margin-bottom: -10%;
 }
@@ -241,3 +241,7 @@ h6 {
   margin-top: -2%;
 }
 
+.testefooter footer{
+  position: fixed;
+  bottom: 0;
+}
