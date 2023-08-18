@@ -8,19 +8,21 @@
   --bg-green: #32382c;
   --white: #f8f8f8;
   --black: #292c25;
+  --black-rgb: 41, 44, 37;
 }
 
 * {
   font-family: var(--text), Verdana, Geneva, Tahoma, sans-serif;
-  color: var(--white);
+  color: var(--black);
 }
 
 body {
   background-color: var(--bg-green);
-  height: 100svh;
+  min-height: 100svh;
 }
 
-ul {
+ul,
+li {
   list-style: none;
 }
 
@@ -33,6 +35,14 @@ ul {
   border: 1px solid var(--green);
   border-radius: 1rem;
   padding: 4px 6px;
+}
+
+header#cabecalho {
+  pointer-events: none;
+}
+
+header#cabecalho *:not(nav, div, ul) {
+  pointer-events: auto;
 }
 
 header#cabecalho nav ul li {
@@ -73,6 +83,47 @@ header#cabecalho nav ul li.pagina-selecionada > a {
   filter: brightness(80%);
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #32382c;
+  width: 100%;
+  padding: 5px 2rem;
+}
+
+.logos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  gap: 22px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #bebebe;
+  font-size: 36px;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-twitter {
+  color: #1da1f2;
+}
+
+.fa-linkedin {
+  color: #0a66c2;
+}
+
+footer a:hover {
+  filter: brightness(120%);
+}
+
 @media (max-width: 768px) {
   header#cabecalho nav ul li {
     width: 100%;
@@ -84,8 +135,41 @@ header#cabecalho nav ul li.pagina-selecionada > a {
   }
 }
 
-.bg-color-navbar {
-  background-color: var(--bg-green); 
-  width: 100%;
-  height: 60px;
+footer img {
+  height: 38px;
+  width: 100px;
+}
+
+.icon-home {
+  position: fixed;
+  right: 1rem;
+  bottom: 4rem;
+  cursor: pointer;
+  z-index: 9999;
+  transition: filter 200ms;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+.icon-home:hover {
+  filter: brightness(1.3);
+}
+
+.icon-home:hover:active {
+  filter: brightness(0.8);
+}
+
+.fa-home {
+  color: var(--white);
+  font-size: 2.6rem;
+  padding: 0.7rem;
+  background-color: var(--green);
+  border: 2px solid var(--dark-green);
+  border-radius: 9999px;
+}
+
+footer img {
+  border: 0;
 }
