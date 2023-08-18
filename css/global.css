@@ -83,3 +83,9 @@ header#cabecalho nav ul li.pagina-selecionada > a {
     top: 8px;
   }
 }
+
+.bg-color-navbar {
+  background-color: var(--bg-green); 
+  width: 100%;
+  height: 60px;
+}

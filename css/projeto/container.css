@@ -1,0 +1,300 @@
+.div_style_container{
+  display: flex;
+  flex-direction: column;
+
+  margin: 0px;
+  padding: 0px;
+
+  width: 1200px;
+  height: 100vh;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.style-container-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-image: url(../../images/projeto/foto_header_projeto.jpg);
+  background-size: cover;
+  width: 1040px;
+  height: 680px;
+  top: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 0;
+}
+
+
+
+.style-container-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  width: 1040px;
+  display: flex;
+  padding: 0;
+}
+
+.style-dev-team {
+  background-color: rgb(94, 51, 51);
+  height: 450px;
+  margin-top: 58px;
+  padding: 0;
+}
+
+.div_header{
+  height: 680px;
+}
+
+
+
+.header_container h1 {
+  margin-bottom: 10px;
+}
+
+.remove-vertical-space {
+  margin-top: -58px; 
+  margin-bottom: -57px; 
+}
+
+.section2_div1{
+  background-color: #f1f1f1;
+}
+
+.section2_div2{
+  background-color: #ccc;
+}
+
+.section2_div1 , .section2_div2{
+  height: 400px;
+}
+
+.info_header {
+  width: 400px;
+  height: 260px;
+  margin-bottom: 360px;
+  margin-left: 335px;
+
+  text-align: left;
+
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  color: #f1f1f1;
+  transform: translateY(-110px);
+}
+
+.info_header > h1{
+  font-size: 44px;
+  color: green;
+  text-shadow:
+  4px 4px 0 black;
+  padding: 10px;
+  
+}
+
+
+.info_header > h2{
+  font-size: 32px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-weight: bolder;
+}
+
+.div_info_projeto{
+  height: 520px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.info_projeto{
+  background-color: white;
+  height: 520px;
+  max-width: 1040px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.style_font_titles{
+  font-size: 64px;
+  font-weight: 800;
+  color: black;
+  margin: 0;
+  padding: 0;
+
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.style_font_paragraph{
+  color: black;
+  font-weight: 300;
+  font-family: sans-serif;
+  letter-spacing: normal;
+  text-align: justify;
+  text-indent: 10px;
+  margin: 40px 12px 12px 12px;
+}
+
+.title-costumer{
+  background-color: #0f3316;
+  height: 4px;
+  border: none; 
+  width: 760px; 
+  margin: 20px auto; 
+}
+
+.style-card{
+  height: 360px;
+  width: 230px;
+}
+
+.style-img-profile{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.dev-name{
+  color: black;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 5px;
+}
+
+.dev-title{
+  margin: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(15, 15, 15);
+}
+
+.div_cards_participantes{
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.btn-view-participation{
+  margin-top: 60px;
+  margin-right: 60px;
+}
+
+
+
+.div-devs-team{
+  height: 180px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.style-footer{
+  background-color: white;
+  height: 440px;
+  width: 1034px;
+  margin-top: 58px;
+  padding: 0;
+}
+
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+.modal-content {
+  width: 660px;
+  height: 760px;
+  margin: 5% auto; 
+  background-color: rgb(233, 233, 241);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+
+.modal-content-inner {
+  display: flex;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal_hr{
+  height: 3px;
+  background-color: black;
+}
+
+#modalImage{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+#h2_modal{
+  color: #111; 
+  font-family: 'Helvetica Neue', 
+  sans-serif; font-size: 20px; 
+  font-weight: bold; 
+  letter-spacing: -1px; 
+  line-height: 1; 
+  text-align: center;
+  margin-left: 8px;
+  margin-top: 3px;
+}
+
+#p1_modal{
+  margin: 0;
+  top: 8px;
+}
+
+#p2_modal{
+  position: absolute;
+  margin: 0;
+  bottom: 60px;
+  padding-right: 15px;
+}
+
+.icons_redes_sociais{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  gap: 3px;
+}
+
+#prevBtn{
+  margin-right: 5px;
+}
