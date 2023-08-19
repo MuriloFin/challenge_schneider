@@ -11,6 +11,9 @@
   href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Montserrat:wght@300;400&family=Open+Sans:wght@300;400&family=Poppins:wght@300;400&family=Roboto&display=swap"
   rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
   <!-- BOOTSTRAP -->
   <link
@@ -30,6 +33,9 @@
     <nav
       class="navbar navbar-expand-md d-flex justify-content-end px-2 px-md-0 fixed-top bg-color-navbar"
     >
+    <a class="icon-home icon_home_projeto"  href="./landing-page.html">
+      <i class="fa fa-home fa_home_projeto"></i>
+    </a>
       <div
         class="d-flex justify-content-between align-items-center w-100 d-md-none"
       >
@@ -83,16 +89,13 @@
     <div class="row div_header">
       <div class="col-md-8 offset-md-2 style-container-header">
         <div class="header_container">
-          
-        </div>
-      </div>
-      <div class="row my-0">
-        <div class="col-md-6 position-absolute bottom-0 start-0 info_header">
-          <h1>GreenPath</h1>
-          <h2>Transformando o Futuro com Sustentabilidade</h2>
-          <p>
-            É com grande entusiasmo que apresentamos o projeto Green Path, uma iniciativa revolucionária que busca transformar o nosso futuro, preservando o planeta que chamamos de lar. Sabemos que enfrentamos desafios ambientais urgentes e é hora de agir.
-          </p>
+          <div class="col-md-6 info_header">
+            <h1>GreenPath</h1>
+            <h2>Transformando o Futuro com Sustentabilidade</h2>
+            <p class="paragr_header">
+              É com grande entusiasmo que apresentamos o projeto Green Path, uma iniciativa revolucionária que busca transformar o nosso futuro, preservando o planeta que chamamos de lar. Sabemos que enfrentamos desafios ambientais urgentes e é hora de agir.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -195,11 +198,16 @@
               </div>
             </div>
           </div>
+          <div class='row'>
+            <div class="col-md-3 espacamento" >
+
+            </div>
+          </div>
           <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()" style="color: black;">X</span>
                 <div class="modal-content-inner">
-                  <img id="modalImage" src="">
+                  <img id="modalImage" src="../images/prints/prints_noticias/print_noticias_1.png">
                   <h2 id="h2_modal"></h2>
                 </div>
                 <hr class="modal_hr">
@@ -236,25 +244,33 @@
                   <a href="" id="link_insta" target="_blank">
                     <img src="../images/icon_red_socia/icons8-instagram-30.png" alt="Icone Instagram" >
                   </a>
-                  
                 </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h3 class="mt-4">Equipe de Desenvolvimento</h3>
-            <hr>
-            <div class="icon-list d-flex justify-content-center">
-              <a href="#" class="icon-link"><i class="fa fa-home"></i></a>
-              <a href="#" class="icon-link"><i class="fa fa-envelope"></i></a>
-              <a href="#" class="icon-link"><i class="fa fa-phone"></i></a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <div class="testefooter">
+    <footer>
+      <div class="logos">
+        <img src="../images/logo_fiap.png" alt="logo fiap" />
+        +
+        <img src="../images/logo_schneider.png" alt="logo schneider" />
+      </div>
+      <div class="icons">
+        <a href="#">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-linkedin"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
 </body>
 <script>
   function openModal(dev) {
@@ -305,18 +321,18 @@
         modalImage.src = "../images/foto_perfil/foto_lucas_magalhaes.jpg";
         modalp1.textContent = "A pagina do jogo consiste em uma série de perguntas sobre ações sustentáveis, como economizar água, energia elétrica, reciclar, entre outras. Cada resposta correta resulta em pontos e, dependendo da pontuação alcançada, o usuário recebe uma mensagem de feedback em pop-up, incentivando-o a continuar adotando comportamentos ecológicos.";
 
-        first_image = '../images/prints/prints_projeto/print_header.png';
-        second_image = '../images/prints/prints_projeto/print_cards.png';
-        third_image = '../images/prints/prints_projeto/print_teste_para_ser_excluido.png';
+        first_image = '../images/prints/prints_jogo/print_jogo_1.png';
+        second_image = '../images/prints/prints_jogo/print_jogo_2.png';
+        third_image = '../images/prints/prints_jogo/print_jogo_3.png';
 
         images = [first_image, second_image, third_image];
         image_modal.src = images[0]
 
         modalp2.textContent = "A pagina utiliza tecnologias como HTML, CSS, JavaScript e Bootstrap para proporcionar uma experiência visualmente agradável e responsiva em diferentes dispositivos. O jogo visa alcançar um público amplo e conscientizar as pessoas sobre a importância de contribuir para um futuro mais sustentável, destacando a importância de pequenas ações individuais na preservação do meio ambiente para as gerações futuras assim ajudando a compreender por meio dele seus erros e acertos na hora de preservar o nosso bem mais precioso que é a natureza.";
 
-        link_github.href = "https://github.com/ViniciusNCorrea98"
-        link_linkedin.href = "https://www.linkedin.com/in/vinicius-correa-82a603230"
-        link_insta.href =  "https://www.instagram.com/vinicincorrea/"
+        link_github.href = "https://github.com/imoozy"
+        link_linkedin.href = "https://www.linkedin.com/in/lucas-magalh%C3%A3es-11672b18b"
+        link_insta.href =  "https://instagram.com/lusca_ml?utm_source=qr&igshid=NGExMmI2YTkyZg%3D%3D"
 
       } else if (dev === 'Murilo_Finardi') {
         modal.style.display = "block";
@@ -326,7 +342,7 @@
 
         first_image = '../images/prints/prints_projeto/print_header.png';
         second_image = '../images/prints/prints_projeto/print_cards.png';
-        third_image = '../images/prints/prints_projeto/print_teste_para_ser_excluido.png';
+        third_image = '../images/prints/prints_dicas/print_dicas_1.png';
 
         images = [first_image, second_image, third_image];
         image_modal.src = images[0]
@@ -348,8 +364,8 @@
 
         
 
-        first_image = '../images/prints/prints_projeto/print_header.png';
-        second_image = '../images/prints/prints_projeto/print_cards.png';
+        first_image = '../images/prints/prints_noticias/print_noticias_1.png';
+        second_image = '../images/prints/prints_noticias/print_noticias_2.png';
         third_image = '../images/prints/prints_projeto/print_teste_para_ser_excluido.png';
 
         images = [first_image, second_image, third_image];

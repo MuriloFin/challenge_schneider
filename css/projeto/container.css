@@ -4,6 +4,7 @@
 
   margin: 0px;
   padding: 0px;
+  margin-bottom: 50px;
 
   width: 1200px;
   height: 100vh;
@@ -12,11 +13,13 @@
   justify-content: center;
 }
 
+
+
 .style-container-header{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: end;
   text-align: center;
 
   background-image: url(../../images/projeto/foto_header_projeto.jpg);
@@ -27,10 +30,15 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  padding: 0;
+  padding: 5px;
 }
 
-
+.paragr_header{
+  color: #f1f1f1;
+  line-height: 22px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 5px;
+}
 
 .style-container-main {
   display: flex;
@@ -81,10 +89,9 @@
 }
 
 .info_header {
+
   width: 400px;
-  height: 260px;
-  margin-bottom: 360px;
-  margin-left: 335px;
+  height: 300px;
 
   text-align: left;
 
@@ -92,7 +99,6 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 500;
   color: #f1f1f1;
-  transform: translateY(-110px);
 }
 
 .info_header > h1{
@@ -129,7 +135,7 @@
 .style_font_titles{
   font-size: 64px;
   font-weight: 800;
-  color: black;
+  color: rgb(0, 0, 0);
   margin: 0;
   padding: 0;
 
@@ -298,5 +304,36 @@
 
 #prevBtn{
   margin-right: 5px;
-  
+
+}
+
+.fa_home_projeto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--white);
+  font-size: 2.6rem;
+  width: 3.6rem;
+  height: 3.6rem; 
+  background-color: var(--green);
+  border: 2px solid var(--dark-green);
+  border-radius: 50%;
+}
+
+
+.icon_home_projeto {
+  position: fixed;
+  text-decoration: none;
+  width: 66px;
+  height: 66px;
+  right:  1rem;
+  bottom: 4rem;
+  cursor: pointer;
+  z-index: 9999;
+  transition: filter 200ms;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 }
