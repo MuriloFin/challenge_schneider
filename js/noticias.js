@@ -103,10 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.removeEventListener("scroll", focusNewsItemOnScroll);
 
+    if (!body.hasAttribute("onFullscreen")) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
     body.setAttribute("onFullscreen", "");
     newsItem.setAttribute("fullscreen", "");
-
-    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
   closeButton.addEventListener("click", () => {
