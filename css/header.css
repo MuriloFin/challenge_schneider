@@ -1,0 +1,149 @@
+body {
+  --header-height: 3rem;
+}
+
+.logo {
+  color: var(--green);
+  filter: brightness(200%);
+  text-align: center;
+  font-family: "Bagel Fat One", cursive;
+  font-size: 2rem;
+  border: 1px solid var(--green);
+  border-radius: 1rem;
+  padding: 4px 6px;
+}
+
+header {
+  height: var(--header-height);
+  background-color: rgba(var(--black-rgb), .7);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+header#cabecalho nav {
+  --opacity: .5;
+  padding: 0 !important;
+  position: relative;
+}
+
+header#cabecalho nav::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgb(var(--black-rgb));
+  z-index: -3;
+  filter: opacity(var(--opacity));
+}
+
+header#cabecalho ul li {
+  position: relative;
+}
+
+header#cabecalho ul li::after {
+  content: '';
+  width: 100%;
+  height: 0%;
+  background-color: rgb(var(--white-rgb));
+  filter: brightness(.9);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: height 400ms;
+}
+
+header#cabecalho ul li:hover::after {
+  height: 100%;
+}
+
+header#cabecalho nav ul li.pagina-selecionada::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(var(--black-rgb));
+  filter: brightness(.8);
+  z-index: -2;
+  box-shadow: 0 0 1rem 3px var(--black);
+}
+
+header#cabecalho ul li>a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: var(--title);
+  padding: 1rem .5rem;
+  background: linear-gradient(to top, rgb(var(--black-rgb)) 50%, rgb(var(--white-rgb)) 50%);
+  background-size: auto 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 400ms;
+}
+
+header#cabecalho nav ul li:hover>a {
+  background-position: center 100%;
+}
+
+header#cabecalho nav ul li.pagina-selecionada>a {
+  background-size: auto 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 400ms;
+}
+
+header#cabecalho nav ul li.pagina-selecionada:hover>a {
+  background-position: center 100%;
+}
+
+#navegacao-menu {
+  transition: none;
+}
+
+#cabecalho-icone {
+  transition: filter 150ms;
+  aspect-ratio: 1 / 1;
+}
+
+.navegacao-botao {
+  transition: filter 300ms;
+}
+
+button.navegacao-botao:hover {
+  filter: invert(1);
+}
+
+button.navegacao-botao:active:hover {
+  filter: invert(1) brightness(80%);
+}
+
+@media (max-width: 768px) {
+  header#cabecalho ul li::after {
+    height: 100%;
+    width: 0%;
+    transition: width 300ms;
+  }
+
+  header#cabecalho ul li:hover::after {
+    width: 100%;
+  }
+
+  header#cabecalho nav ul li.pagina-selecionada>a {
+    background: linear-gradient(to left, rgb(var(--white-rgb)) 50%, rgb(var(--black-rgb)) 50%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: background-position 300ms;
+  }
+
+
+  header#cabecalho nav ul li.pagina-selecionada:hover>a {
+    background-position: 100% center;
+  }
+}

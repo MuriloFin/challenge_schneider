@@ -8,7 +8,6 @@ a {
 
 header {
   position: absolute;
-  z-index: 999;
 }
 
 footer {
@@ -89,7 +88,7 @@ footer {
   #news-badge {
     position: fixed;
     left: 30px;
-    z-index: 9999;
+    z-index: 3;
     padding: 0.5rem 0.75rem;
     border-radius: 9999px;
     background-color: rgba(var(--black-rgb), 0.9);
@@ -259,10 +258,6 @@ footer {
     display: none;
   }
 
-  body[onFullscreen] :is(header, footer) {
-    display: none;
-  }
-
   .news-item[fullscreen] {
     display: flex;
     justify-content: center;
@@ -359,8 +354,8 @@ footer {
 
 #close-fullscreen {
   position: fixed;
-  top: 8px;
-  right: 8px;
+  top: calc(var(--header-height) + 1rem);
+  right: 2rem;
   clip-path: circle();
   cursor: pointer;
   transition: transform 200ms, filter 100ms;
