@@ -22,9 +22,12 @@ header {
 }
 
 header#cabecalho nav {
-  --opacity: .5;
+  --opacity: 1;
   padding: 0 !important;
   position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 header#cabecalho nav::before {
@@ -121,6 +124,41 @@ button.navegacao-botao:hover {
 
 button.navegacao-botao:active:hover {
   filter: invert(1) brightness(80%);
+}
+
+#cabecalho .menu__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(calc(0px - 100% - .8rem), -50%);
+}
+
+.login img {
+  width: 2rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.login span {
+  width: 10rem;
+  color: var(--white);
+  font-family: var(--sub-title);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @media (max-width: 768px) {
