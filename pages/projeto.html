@@ -123,9 +123,9 @@
             </p>
             <div id="modalSimulator" class="modal row">
               <div class="modal-content-simulator d-flex col-md-12">
-                  <span class="close" onclick="closeModal()" style="color: black;">X</span>
                   <div class="col-md-4" id="img_modal_simulator"></div>
                   <div class="col-md-8" id="div_form">
+                    <span class="close_simulador"  onclick="closeSimulator()" style="color: black;">X</span>
                     <img src="../images/logo_schneider.png" alt="'Logo Schneider" id="logo_schneider_simulator"></img>
                     <div class="form_inputs">
                       <div class='num_input_simulator'>
@@ -396,7 +396,19 @@
 
     modal.style.display = 'flex';
 
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          closeSimulator();
+        }
+    };
+
   }
+
+  function closeSimulator() {
+      var modal = document.getElementById("modalSimulator");
+      modal.style.display = "none";
+  }
+
 
   function openModal(dev) {
       const back_button = document.getElementById("prevBtn");

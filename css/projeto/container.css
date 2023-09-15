@@ -412,6 +412,14 @@
   cursor: pointer;
 }
 
+.close_simulador{
+  display: flex;
+  position: relative;
+  right: 0;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
 .modal_hr{
   height: 3px;
   background-color: black;
