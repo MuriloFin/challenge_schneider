@@ -13,7 +13,6 @@ body {
 
 header {
   position: fixed;
-  z-index: 2;
 }
 
 main > section {
@@ -46,6 +45,7 @@ main > section {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-align: center;
 }
 
 #landing-page h1 {

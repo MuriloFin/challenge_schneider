@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <title>Green Path</title>
+
+  <!-- FONTS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Montserrat:wght@300;400&family=Open+Sans:wght@300;400&family=Poppins:wght@300;400&family=Roboto&display=swap"
+    rel="stylesheet" />
+
+  <!-- ICONES -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="../css/global.css" />
+  <link rel="stylesheet" type="text/css" href="../css/header.css" />
+  <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+
+  <link rel="stylesheet" type="text/css" href="../css/posts.css" />
+
+  <!-- JS -->
+  <script src="../js/header.js"></script>
+  <script src="../js/posts/balloon.js"></script>
+  <script src="../js/posts/displayContent.js"></script>
+  <script src="../js/posts/vote.js"></script>
+  <script src="../js/posts/feedback.js"></script>
+</head>
+
+<body class="min-vh-100">
+  <!-- NAVEGAÇÃO -->
+  <header id="cabecalho" class="container-fluid px-0">
+    <nav class="navbar navbar-expand-md d-flex justify-content-end px-2 px-md-0">
+      <div class="d-flex justify-content-between align-items-center w-100 d-md-none">
+        <span class="logo d-md-none">Green Path</span>
+        <button id="cabecalho-icone"
+          class="navegacao-botao navbar-toggler border-0 shadow-none rounded-5 d-flex justify-content-center align-items-center"
+          type="button" data-bs-toggle="collapse" data-bs-target="#navegacao-menu" aria-controls="navegacao-menu"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse position-relative" id="navegacao-menu">
+        <ul class="d-flex flex-wrap justify-content-center column-gap-0 row-gap-2 text-center navbar-nav w-100">
+          <li class="nav-item">
+            <a class="navegacao-botao nav-link w-100" href="../index.html">
+              Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navegacao-botao nav-link w-100" href="./projeto.html">
+              Sobre o Projeto
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navegacao-botao nav-link w-100" href="./dicas.html">
+              Dicas Sustentáveis
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navegacao-botao nav-link w-100" href="https://www.youtube.com/watch?v=HcsIwo9Dh38"
+              target="_blank">
+              Video PITCH
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navegacao-botao nav-link w-100" href="./noticias.html">
+              Notícias
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navegacao-botao nav-link w-100" href="./jogo.html">
+              Jogo
+            </a>
+          </li>
+          <li class="nav-item pagina-selecionada">
+            <a class="navegacao-botao nav-link w-100" href="#">
+              Faça a diferença
+            </a>
+          </li>
+        </ul>
+        <div class="login">
+          <img src="../images/foto_perfil/foto_vinicius_simizu.jpg" alt="Perfil">
+          <span>Vinicius Simizu</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="main-content">
+    <div class="ball-1"></div>
+    <section class="profile">
+      <article class="profile__dashboard">
+        <ul class="attributes">
+          <li>
+            <div class="balloon">
+              <span class="action">76.5</span>
+              <span class="detail reaction">Pontos de contribuição social. (Ex: inclusão, segurança, saúde)</span>
+            </div>
+            <span>Social</span>
+          </li>
+          <li>
+            <div class="balloon">
+              <span class="action">50</span>
+              <span class="detail reaction">Pontos de contribuição ao planeta. (Ex: reciclagem, redução de poluentes,
+                uso
+                sustentável)</span>
+            </div>
+            <span>Planeta</span>
+          </li>
+          <li>
+            <div class="balloon">
+              <span class="action">51</span>
+              <span class="detail reaction">Pontos de geração de receita.</span>
+            </div>
+            <span>Econômia</span>
+          </li>
+        </ul>
+      </article>
+      <article class="profile__rank">
+        <div class="rank">17</div>
+        <div class="level">
+          <span class="xp_bar"></span>
+          <span class="rank_number">17</span>
+        </div>
+      </article>
+      <article class="profile__view" active>
+        <div class="showcase">
+          <div class="photo">
+            <img src="../images/foto_perfil/foto_vinicius_simizu.jpg" alt="Foto de perfil">
+          </div>
+        </div>
+        <span class="name">Vinicius Simizu</span>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#e76f51"
+            d="M35.7,-60.3C45.7,-56.1,52.7,-45.3,54.1,-34.1C55.5,-23,51.4,-11.5,49.2,-1.2C47,9,46.9,18,43.9,26.4C40.8,34.8,35,42.6,27.2,52.8C19.4,63,9.7,75.5,1.7,72.5C-6.2,69.5,-12.5,51,-23.9,42.9C-35.4,34.8,-52,37.2,-63.9,31.8C-75.7,26.4,-82.7,13.2,-82,0.4C-81.3,-12.4,-72.8,-24.7,-62.6,-33.1C-52.5,-41.5,-40.8,-45.9,-30.1,-49.6C-19.4,-53.3,-9.7,-56.3,1.6,-59.1C12.9,-61.9,25.8,-64.4,35.7,-60.3Z"
+            transform="translate(100 100)" />
+        </svg>
+      </article>
+    </section>
+
+    <section class="meta">
+      <article class="meta__social">
+        <div>
+          <div class="current_meta">
+            <div class="balloon">
+              <span class="current_meta__number action">3</span>
+              <span class="current_meta__description reaction">Número da rodada atual</span>
+            </div>
+          </div>
+          <div class="balloon social__icon">
+            <i class="action ph ph-users-three"></i>
+            <span class="reaction">Contribuição Social</span>
+          </div>
+          <div class="social__information">
+            <h3 class="social__title">Geração de energia elétrica para comunidades isoladas</h3>
+            <p class="social__description">
+              Em um esforço dedicado a melhorar a qualidade de vida e promover o desenvolvimento
+              sustentável, estamos empenhados em implementar um projeto inovador de geração de energia elétrica para
+              comunidades isoladas por meio de painéis solares, para fornecer uma fonte confiável e limpa de
+              eletricidade.
+            </p>
+          </div>
+        </div>
+      </article>
+      <article class="meta__reward">
+        <div>
+          <div class="reward__icon balloon">
+            <i class="action ph ph-certificate"></i>
+            <span class="reaction">Recompensas da Schneider</span>
+          </div>
+          <div class="reward__content">
+            <span>Vantagens:</span>
+            <ul class="reward__benefits">
+              <li>Short Friday</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="brainstorm">
+      <article>
+        <div class="brainstorm__header">
+          <h3 class="brainstorm__display">Sugestões</h3>
+          <button>
+            <div>
+              <span class="description">Crie uma sugestão</span>
+              <span class="cursor"></span>
+              <i class="ph ph-feather"></i>
+            </div>
+          </button>
+        </div>
+        <ul class="brainstorm__ideas">
+          <li>
+            <div class="idea__upvote">
+              <i class="upvote__up ph ph-arrow-fat-up"></i>
+              <span class="upvote__count">31</span>
+              <i class="upvote__down ph ph-arrow-fat-down"></i>
+            </div>
+            <div class="idea__content">
+              <div class="idea__collaborator">
+                <img src="../images/foto_perfil/foto_vinicius.jpg" alt="Colaborador">
+                <span>Vinicius Correa</span>
+              </div>
+              <h4 class="idea__title">Estufas de cultivo em regiões urbanas</h4>
+              <div class="idea__details">
+                <div class="idea__proposal">
+                  <p class="proposal__detail">
+                    Alimentos são essências para a vida, e nos podemos melhorar os processos de cultivo e logística para
+                    melhor, usando de estufas para deixar o cultivo mais eficiente em um ambiente controlado, e
+                    reduzindo os custos de logística das regiões rurais para as urbanas.
+                  </p>
+                </div>
+                <div class="idea__feedback">
+                  <h6>Feedback</h6>
+                  <ul class="feedback__attributes">
+                    <li class="attribute__social">
+                      <div class="attribute__icon">
+                        <span class="attribute__value">68</span>
+                        <i class="ph ph-person-arms-spread"></i>
+                      </div>
+                      <span class="attribute__name">Social</span>
+                    </li>
+                    <li class="attribute__planet">
+                      <div class="attribute__icon">
+                        <span class="attribute__value">40</span>
+                        <i class="ph ph-plant"></i>
+                      </div>
+                      <span class="attribute__name">Sustentável</span>
+                    </li>
+                    <li class="attribute__economy">
+                      <div class="attribute__icon">
+                        <span class="attribute__value">71</span>
+                        <i class="ph ph-coins"></i>
+                      </div>
+                      <span class="attribute__name">Receita</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="idea__control">
+                <span class="control__more">mostrar mais</span>
+                <span class="control__less">mostrar menos</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="idea__upvote">
+              <i class="upvote__up ph ph-arrow-fat-up"></i>
+              <span class="upvote__count">14</span>
+              <i class="upvote__down ph ph-arrow-fat-down"></i>
+            </div>
+            <div class="idea__content">
+              <div class="idea__collaborator">
+                <img src="../images/foto_perfil/foto_murilo.jpg" alt="Colaborador">
+                <span>Murilo</span>
+              </div>
+              <h4 class="idea__title">Saúde Mental nas Cidades Modernas</h4>
+              <div class="idea__details">
+                <div class="idea__proposal">
+                  <p class="proposal__detail">
+                    A saúde mental é uma preocupação crescente, onde o ritmo acelerado da vida e as pressões do
+                    cotidiano podem afetar o bem-estar das pessoas. Assim sendo, é importante que as cidades ofereçam
+                    espaços e recursos que promovam a saúde mental. Parques urbanos, centros de bem-estar e programas de
+                    apoio psicológico são ferramentas valiosas para ajudar os habitantes urbanos a cuidarem de sua saúde
+                    mental e emocional.
+                  </p>
+                </div>
+                <div class="idea__feedback">
+                  <h6>Feedback</h6>
+                  <ul class="feedback__attributes">
+                    <li class="attribute__social">
+                      <div class="attribute__icon">
+                        <span class="attribute__value">85</span>
+                        <i class="ph ph-person-arms-spread"></i>
+                      </div>
+                      <span class="attribute__name">Social</span>
+                    </li>
+                    <li class="attribute__planet">
+                      <div class="attribute__icon">
+                        <span class="attribute__value">12</span>
+                        <i class="ph ph-plant"></i>
+                      </div>
+                      <span class="attribute__name">Sustentável</span>
+                    </li>
+                    <li class="attribute__economy">
+                      <div class="attribute__icon">
+                        <span class="attribute__value">10</span>
+                        <i class="ph ph-coins"></i>
+                      </div>
+                      <span class="attribute__name">Receita</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="idea__control">
+                <span class="control__more">mostrar mais</span>
+                <span class="control__less">mostrar menos</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="idea__upvote">
+              <i class="upvote__up ph ph-arrow-fat-up"></i>
+              <span class="upvote__count">7</span>
+              <i class="upvote__down ph ph-arrow-fat-down"></i>
+            </div>
+            <div class="idea__content">
+              <div class="idea__collaborator">
+                <img src="../images/foto_perfil/foto_lucas_magalhaes.jpg" alt="Colaborador">
+                <span>Lucas Magalhães</span>
+              </div>
+              <h4 class="idea__title">O Futuro Empresarial: Uma Abordagem Transformadora</h4>
+              <div class="idea__details">
+                <div class="idea__proposal">
+                  <p class="proposal__detail">
+                    Em um cenário empresarial cada vez mais dinâmico e consciente, a inovação se tornou o fio condutor para o sucesso. As empresas do futuro estão adotando abordagens visionárias que transcendem o convencional, promovendo positivamente a sociedade e o meio ambiente enquanto asseguram sua própria prosperidade.
+                    <br>
+                    <br>
+                    Ao investir em programas de capacitação e oportunidades para comunidades menos favorecidas, essas empresas não apenas demonstram compromisso social, mas também fomentam uma base de talento diversificada e talentosa, gerando um impacto significativo no mercado de trabalho.
+                    <br>
+                    <br>
+                    Além disso, ao abraçar práticas empresariais sustentáveis, como a utilização de energias limpas e a redução de resíduos, essas empresas estão não apenas atendendo às demandas de um mundo que se preocupa com o meio ambiente, mas também economizando recursos valiosos, o que impulsiona a eficiência operacional e a margem de lucro.
+                    <br>
+                    <br>
+                    Por fim, ao criar produtos e serviços inovadores que abordam as necessidades emergentes da sociedade e do planeta, essas empresas não só garantem sua própria lucratividade a longo prazo, mas também moldam um futuro mais justo e sustentável. A visão e a ação dessas empresas apontam o caminho para um novo paradigma empresarial, em que o sucesso não é apenas medido em termos de lucro, mas também pelo impacto transformador que se promove no mundo.
+                  </p>
+                </div>
+              </div>
+              <div class="idea__control">
+                <span class="control__more">mostrar mais</span>
+                <span class="control__less">mostrar menos</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logos">
+      <img src="../images/logo_fiap.png" alt="logo fiap" />
+      +
+      <img src="../images/logo_schneider.png" alt="logo schneider" />
+    </div>
+    <div class="icons">
+      <a href="#">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="#">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="#">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- BOOTSTRAP -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
