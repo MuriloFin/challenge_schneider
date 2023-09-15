@@ -4,13 +4,6 @@ body {
   overflow-x: hidden;
 }
 
-.navbar{
-  background-color: #32382c;
-  margin-top: -4px;
-  margin-left: -13px;
-  margin-right: -13px;
-}
-
 main {
   background-color: #ffffff;
 }
