@@ -115,6 +115,116 @@
             <p class="style_font_paragraph">
               Hoje, com o site finalizado e lançado para o mundo, podemos celebrar com orgulho a realização de um sonho que parecia tão distante. Cada linhade código e cada detalhe visual refletem não apenas nosso compromisso com a excelência no desenvolvimento, mas também o desejo genuíno de contribuir para um futuro melhor. Sabemos que este é apenas o começo da nossa trajetória em busca de mudanças significativas, mas a sensação de conquista e aprendizado que nos acompanha é o combustível para continuarmos a fazer a diferença. A parceria com a Schneider nos impulsiona a ir além, tornando nosso projeto sustentável uma força motriz na transformação do mundo. E assim, seguimos firmes em nossa jornada, prontos para enfrentar novos desafios e ansiosos para aprender e conquistar ainda mais.
             </p>
+            <div id="modalSimulator" class="modal row">
+              <div class="modal-content-simulator d-flex col-md-12">
+                  <span class="close" onclick="closeModal()" style="color: black;">X</span>
+                  <div class="col-md-4" id="img_modal_simulator"></div>
+                  <div class="col-md-8" id="div_form">
+                    <img src="../images/logo_schneider.png" alt="'Logo Schneider" id="logo_schneider_simulator"></img>
+                    <div class="form_inputs">
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 1° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 2° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 3° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 4° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 5° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 6° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 7° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 8° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 9° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 10° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 11° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 12° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 footer_simulator">
+                        <div class="col-md-3 section_footer_simulator">
+                          
+                          <div class="div_input_radio">
+                            <span class="d-flex num_input_simulator">Residencial ou industrial?</span>
+                            <div class="input_residencial">
+                              <label for="residencial num_input_simulator">Residencial: </label>
+                              <input type="radio" name="tipo" id="residencial" value="Residencial" checked>
+                            </div>
+                            <div class="input_residencial">
+                              <label for="industrial num_input_simulator">Industrial: </label>
+                              <input type="radio" name="tipo" id="industrial" value="Industrial">
+                            </div>
+                            
+                          </div>
+                          <button class="btn_simulator_style" id="btn_simulator" type="submit">Calcular</button>
+                        </div>
+                        
+                        <div class="col-md-6 section_footer_simulator results">
+                          <h2 id="titulo_resultado">Resultados</h2>
+                          <span class="span_resultado">Tipo de projeto: </span>
+                          <span class="span_resultado">Quantos painéis fotovoltaicos: </span>
+                          <span class="span_resultado">Custo de material: </span>
+                          <span class="span_resultado">Custo de projeto: R$</span>
+                          <span class="span_resultado">Custo total: R$</span>
+  
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1 class="f2 mt4 relative style_font_titles">Energia e Sustentabilidade</h1>
+            <hr class="title-costumer">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 justify-content-center align-items-center">
+            <p class='style_font_paragraph'>Nos últimos anos, a energia solar compartilhada emergiu como uma força transformadora no Brasil, com um crescimento notável. Em 2019, o país abrigava menos de 500 usinas solares compartilhadas, mas hoje, esse número se aproxima de impressionantes 5,4 mil. Esse avanço representa não apenas uma mudança na paisagem energética, mas também uma esperança para regiões remotas e carentes de acesso à eletricidade, como o interior dos estados e até mesmo a Amazônia.
+            </p>
+
+            <p class='style_font_paragraph'>No entanto, apesar desse crescimento, fica claro que o Brasil ainda necessita de políticas públicas mais focadas na sustentabilidade e na transição energética. Como destaca Rodrigo Sauaia, a tecnologia solar pode ser uma solução para levar eletricidade a áreas onde atualmente ela não está disponível. Programas de universalização do acesso à energia elétrica podem abrir portas para uma expansão ainda maior da energia solar compartilhada, tornando-a acessível a todos os cantos do país. 
+            </p>
+            <p class="style_font_paragraph">
+              Nesse cenário de evolução energética, empresas como a Schneider se destacam como referências em energia sustentável. Com sua expertise e comprometimento com soluções eficazes, elas desempenham um papel crucial na aceleração da transição para fontes de energia mais limpas e acessíveis, contribuindo significativamente para um futuro energético mais brilhante e sustentável no Brasil e além.
+            </p>
+            <button class="col-md-2 btn_simulator_style" onclick="openSimulator()" id="btn-simulador">Simulador</button>
           </div>
         </div>
         <div class="row">
@@ -275,6 +385,13 @@
   </div>
 </body>
 <script>
+  function openSimulator(){
+    var modal = document.getElementById("modalSimulator");
+
+    modal.style.display = 'flex';
+
+  }
+
   function openModal(dev) {
       const back_button = document.getElementById("prevBtn");
       const next_button = document.getElementById("nextBtn");
