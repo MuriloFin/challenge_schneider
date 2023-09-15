@@ -116,6 +116,113 @@
             <p class="style_font_paragraph">
               Hoje, com o site finalizado e lançado para o mundo, podemos celebrar com orgulho a realização de um sonho que parecia tão distante. Cada linhade código e cada detalhe visual refletem não apenas nosso compromisso com a excelência no desenvolvimento, mas também o desejo genuíno de contribuir para um futuro melhor. Sabemos que este é apenas o começo da nossa trajetória em busca de mudanças significativas, mas a sensação de conquista e aprendizado que nos acompanha é o combustível para continuarmos a fazer a diferença. A parceria com a Schneider nos impulsiona a ir além, tornando nosso projeto sustentável uma força motriz na transformação do mundo. E assim, seguimos firmes em nossa jornada, prontos para enfrentar novos desafios e ansiosos para aprender e conquistar ainda mais.
             </p>
+            <div id="modalSimulator" class="modal row">
+              <div class="modal-content-simulator d-flex col-md-12">
+                  <span class="close" onclick="closeModal()" style="color: black;">X</span>
+                  <div class="col-md-4" id="img_modal_simulator"></div>
+                  <div class="col-md-8" id="div_form">
+                    <img src="../images/logo_schneider.png" alt="'Logo Schneider" id="logo_schneider_simulator"></img>
+                    <div class="form_inputs">
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 1° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 2° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 3° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 4° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 5° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 6° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 7° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 8° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 9° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 10° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 11° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                      <div class='num_input_simulator'>
+                        <span>Gasto de energia no 12° mês:</span>
+                        <input type="number" class="input_energy_mounth" placeholder="Ex.:534 (valor em kWh)"></input>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 footer_simulator">
+                        <div class="col-md-3 section_footer_simulator">
+                          
+                          <div class="div_input_radio">
+                            <span class="d-flex num_input_simulator">Residencial ou industrial?</span>
+                            <div class="input_residencial">
+                              <label for="residencial num_input_simulator">Residencial: </label>
+                              <input type="radio" name="tipo" id="residencial" value="Residencial" checked>
+                            </div>
+                            <div class="input_residencial">
+                              <label for="industrial num_input_simulator">Industrial: </label>
+                              <input type="radio" name="tipo" id="industrial" value="Industrial">
+                            </div>
+                            
+                          </div>
+                          <button class="btn_simulator_style" id="btn_simulator" type="submit">Calcular</button>
+                        </div>
+                        
+                        <div class="col-md-6 section_footer_simulator results">
+                          <h2 id="titulo_resultado">Resultados</h2>
+                          <span class="span_resultado">Tipo de projeto: </span>
+                          <span class="span_resultado">Quantos painéis fotovoltaicos: </span>
+                          <span class="span_resultado">Custo de material: </span>
+                          <span class="span_resultado">Custo de projeto: R$</span>
+                          <span class="span_resultado">Custo total: R$</span>
+  
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1 class="f2 mt4 relative style_font_titles">Energia e Sustentabilidade</h1>
+            <hr class="title-costumer">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 justify-content-center align-items-center">
+            <p class='style_font_paragraph'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ab, dolorem possimus eius ea iure nostrum inventore totam mollitia ut accusantium modi eaque non in ullam sapiente. Asperiores natus ipsa cupiditate facere excepturi tenetur ea totam enim alias eaque nostrum aliquam amet ad error, quia minus officiis cumque culpa praesentium? Nemo cumque aliquid ad delectus quisquam. Aspernatur, eius accusantium doloremque numquam corporis culpa nulla voluptatem facere similique. Quae, laborum reiciendis! Necessitatibus iusto deserunt error nesciunt harum assumenda, aspernatur cupiditate ipsam vero tenetur dolorum dicta maiores perspiciatis quae at voluptate voluptas vitae ad? Aperiam repellat, cum nisi fugiat commodi nulla ducimus architecto consequuntur sequi ea debitis vel reiciendis neque labore at reprehenderit eligendi iste. Iste esse accusantium voluptate repudiandae unde tempora non, cupiditate beatae et voluptates ex dolorum omnis earum excepturi.
+            </p>
+
+            <p class='style_font_paragraph'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ab, dolorem possimus eius ea iure nostrum inventore totam mollitia ut accusantium modi eaque non in ullam sapiente. Asperiores natus ipsa cupiditate facere excepturi tenetur ea totam enim alias eaque nostrum aliquam amet ad error, quia minus officiis cumque culpa praesentium? Nemo cumque aliquid ad delectus quisquam. Aspernatur, eius accusantium doloremque numquam corporis culpa nulla voluptatem facere similique. Quae, laborum reiciendis! Necessitatibus iusto deserunt error nesciunt harum assumenda, aspernatur cupiditate ipsam vero tenetur dolorum dicta maiores perspiciatis quae at voluptate voluptas vitae ad? 
+            </p>
+            <button class="col-md-2 btn_simulator_style" onclick="openSimulator()" id="btn-simulador">Simulador</button>
           </div>
         </div>
         <div class="row">
@@ -276,6 +383,13 @@
   </div>
 </body>
 <script>
+  function openSimulator(){
+    var modal = document.getElementById("modalSimulator");
+
+    modal.style.display = 'flex';
+
+  }
+
   function openModal(dev) {
       const back_button = document.getElementById("prevBtn");
       const next_button = document.getElementById("nextBtn");
